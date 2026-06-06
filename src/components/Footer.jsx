@@ -39,10 +39,10 @@ export default function Footer() {
       ></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* Column 1: Logo, Tagline, WhatsApp CTA (5/12 cols) */}
-          <div className="md:col-span-5 flex flex-col items-start select-none">
+          <div className="lg:col-span-5 flex flex-col items-start select-none">
             {/* Logo Row */}
             <a
               href="#home"
@@ -83,7 +83,7 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Explore (2/12 cols) */}
-          <div className="md:col-span-2 flex flex-col items-start">
+          <div className="lg:col-span-2 flex flex-col items-start">
             <span className="font-body text-[10px] tracking-[1.5px] font-bold text-slate-400 uppercase mb-5 select-none">
               Explore
             </span>
@@ -127,7 +127,7 @@ export default function Footer() {
           </div>
 
           {/* Column 3: Visit Us (2/12 cols) */}
-          <div className="md:col-span-2 flex flex-col items-start">
+          <div className="lg:col-span-2 flex flex-col items-start">
             <span className="font-body text-[10px] tracking-[1.5px] font-bold text-slate-400 uppercase mb-5 select-none">
               Visit Us
             </span>
@@ -143,7 +143,7 @@ export default function Footer() {
           </div>
 
           {/* Column 4: Built By (3/12 cols) */}
-          <div className="md:col-span-3 flex flex-col items-start w-full">
+          <div className="lg:col-span-3 flex flex-col items-start w-full">
             <span className="font-body text-[10px] tracking-[1.5px] font-bold text-slate-400 uppercase mb-5 select-none">
               Built By
             </span>

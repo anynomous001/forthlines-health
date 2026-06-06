@@ -64,11 +64,11 @@ export default function SymptomFinder() {
   return (
     <section 
       id="test-finder" 
-      className="bg-white py-24 border-t border-slate-100"
+      className="bg-white py-16 lg:py-24 border-t border-slate-100"
       aria-labelledby="finder-heading"
     >
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           
           {/* Left Column (40% width) */}
           <div className="lg:col-span-5 flex flex-col items-start text-left">
@@ -130,7 +130,7 @@ export default function SymptomFinder() {
               ) : (
                 selectedData && (
                   <div 
-                    className="bg-white border border-slate-200/80 p-8 rounded-3xl shadow-[0_15px_45px_rgba(15,23,42,0.04)] text-left"
+                    className="bg-white border border-slate-200/80 p-5 sm:p-8 rounded-2xl sm:rounded-3xl shadow-[0_15px_45px_rgba(15,23,42,0.04)] text-left"
                     style={{ animation: 'fadeInUp 0.4s ease forwards' }}
                   >
                     

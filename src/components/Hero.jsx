@@ -16,7 +16,7 @@ export default function Hero() {
   return (
     <section 
       id="home" 
-      className="pt-26 pb-12 relative bg-white flex items-center justify-center overflow-hidden"
+      className="pt-26 sm:pt-28 lg:pt-32 pb-12 lg:pb-16 relative bg-white flex items-center justify-center overflow-hidden"
       aria-label="Hero section"
     >
       {/* Soft Teal/Blue Gradient Glow behind the card on the right */}
@@ -40,7 +40,7 @@ export default function Hero() {
       ></div>
 
       <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           
           {/* Left Column (60% width) */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
@@ -54,7 +54,7 @@ export default function Hero() {
             </div>
 
             {/* Headline matching screenshot layout */}
-            <h1 className="font-display font-semibold text-[#0A1628] tracking-tight leading-[1.2] mb-6 text-4xl sm:text-5xl md:text-6xl max-w-2xl">
+            <h1 className="font-display font-semibold text-[#0A1628] tracking-tight leading-[1.2] mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-2xl">
               Kolkata's most trusted <br />
               <span className="relative inline-block pb-1">
                 diagnostic centre

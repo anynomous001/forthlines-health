@@ -40,20 +40,20 @@ export default function Navbar() {
         {/* Logo (same line as shown in image) */}
         <a
           href="#home"
-          className="flex items-baseline gap-2 select-none"
+          className="flex items-baseline gap-2 select-none flex-shrink-0"
           onClick={(e) => handleScrollTo(e, 'home')}
           aria-label="Forthlines Diagnostics Home"
         >
-          <span className="font-display font-bold text-2xl text-[#0A1628] tracking-tight">
+          <span className="font-display font-bold text-xl sm:text-2xl text-[#0A1628] tracking-tight">
             Forthlines
           </span>
-          <span className="font-body text-sm font-semibold tracking-wide text-[#00B4A6]">
+          <span className="font-body text-xs sm:text-sm font-semibold tracking-wide text-[#00B4A6]">
             Diagnostics
           </span>
         </a>
 
         {/* Desktop Nav Links */}
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden lg:flex items-center gap-10">
           <ul className="flex items-center gap-8 font-body text-[13px] font-medium text-[#475569] list-none">
             <li>
               <a
@@ -104,7 +104,7 @@ export default function Navbar() {
         </div>
 
         {/* WhatsApp Button (Teal background as in image) */}
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <a
             href="https://wa.me/918777578862?text=Hi%2C%20I%20want%20to%20book%20a%20test%20at%20Forthlines%20Diagnostics"
             target="_blank"
@@ -120,7 +120,7 @@ export default function Navbar() {
 
         {/* Mobile Hamburger Menu Toggle */}
         <button
-          className="md:hidden text-[#0F172A] hover:text-[#00B4A6] transition-colors p-2"
+          className="lg:hidden text-[#0F172A] hover:text-[#00B4A6] transition-colors p-2"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle navigation menu"
         >
@@ -130,7 +130,7 @@ export default function Navbar() {
 
       {/* Mobile Nav Drawer */}
       <div 
-        className={`md:hidden overflow-hidden transition-all duration-350 ease-in-out bg-white border-b border-black/5 ${
+        className={`lg:hidden overflow-hidden transition-all duration-350 ease-in-out bg-white border-b border-black/5 ${
           isMenuOpen ? 'max-h-[380px] py-6' : 'max-h-0 py-0'
         }`}
       >

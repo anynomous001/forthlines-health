@@ -73,13 +73,13 @@ export default function Packages() {
   return (
     <section 
       id="packages" 
-      className="bg-[#F8FAFC] py-24 border-t border-slate-100"
+      className="bg-[#F8FAFC] py-16 lg:py-24 border-t border-slate-100"
       aria-labelledby="packages-heading"
     >
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Two-column Header Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16 text-left">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12 lg:mb-16 text-left">
           <div className="lg:col-span-7">
             <span className="text-[10px] uppercase tracking-[3px] font-bold text-[#00B4A6] mb-3 block">
               PREVENTIVE HEALTH PACKAGES
@@ -101,7 +101,7 @@ export default function Packages() {
           {packageList.map((pkg, idx) => (
             <article 
               key={idx} 
-              className={`package-card relative bg-white rounded-[20px] p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 select-none ${
+              className={`package-card relative bg-white rounded-[20px] p-5 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 select-none ${
                 pkg.popular 
                   ? 'border border-[#00B4A6] shadow-[0_12px_36px_rgba(0,180,166,0.08)] ring-2 ring-[#00B4A6]/10' 
                   : 'border border-slate-200/80 hover:border-[#00B4A6]/45 hover:shadow-[0_16px_40px_rgba(15,23,42,0.04)]'

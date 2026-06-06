@@ -23,13 +23,13 @@ export default function Reviews() {
   return (
     <section 
       id="reviews" 
-      className="bg-white py-24 border-t border-slate-100 relative overflow-hidden"
+      className="bg-white py-16 lg:py-24 border-t border-slate-100 relative overflow-hidden"
       aria-labelledby="reviews-heading"
     >
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Split Header */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end mb-16 text-left">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end mb-12 lg:mb-16 text-left">
           
           {/* Left Column Heading */}
           <div className="md:col-span-8">
@@ -70,14 +70,14 @@ export default function Reviews() {
         </div>
 
         {/* Reviews Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {reviewsList.map((review, idx) => (
             <article 
               key={idx} 
-              className="bg-white border border-slate-200/80 hover:border-[#00B4A6]/30 rounded-[20px] p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(15,23,42,0.03)] relative overflow-hidden"
+              className="bg-white border border-slate-200/80 hover:border-[#00B4A6]/30 rounded-[20px] p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(15,23,42,0.03)] relative overflow-hidden"
             >
               {/* Quote marks background decoration */}
-              <div className="absolute top-6 right-8 font-display text-[#00B4A6]/8 text-[48px] select-none pointer-events-none font-bold leading-none">
+              <div className="absolute top-4 sm:top-6 right-6 sm:right-8 font-display text-[#00B4A6]/8 text-[40px] sm:text-[48px] select-none pointer-events-none font-bold leading-none">
                 99
               </div>
 

@@ -26,13 +26,13 @@ export default function HowItWorks() {
   return (
     <section 
       id="how-it-works" 
-      className="bg-white py-24 border-t border-slate-100"
+      className="bg-white py-16 lg:py-24 border-t border-slate-100"
       aria-labelledby="how-heading"
     >
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-20 fade-in-target">
+        <div className="flex flex-col items-center text-center mb-12 sm:mb-20 fade-in-target">
           <span className="text-[10px] uppercase tracking-[3px] font-bold text-[#00B4A6] mb-3">
             HOW IT WORKS
           </span>

@@ -5,11 +5,11 @@ export default function Contact() {
   return (
     <section 
       id="contact" 
-      className="bg-[#F8FAFC] py-24 border-t border-slate-100"
+      className="bg-[#F8FAFC] py-16 lg:py-24 border-t border-slate-100"
       aria-labelledby="contact-heading"
     >
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           
           {/* Left Column (45% width) */}
           <div className="lg:col-span-5 flex flex-col items-start text-left select-none">
@@ -130,7 +130,7 @@ export default function Contact() {
               </div>
 
               {/* Bottom White Overlay Box */}
-              <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-[0_4px_25px_rgba(15,23,42,0.03)] flex items-center justify-between text-left">
+              <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-[0_4px_25px_rgba(15,23,42,0.03)] flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between text-left">
                 <div>
                   <h4 className="font-display font-semibold text-[#0A1628] text-[13.5px] leading-tight mb-0.5">
                     Forthlines Diagnostics
@@ -144,7 +144,7 @@ export default function Contact() {
                   href="https://maps.google.com/?q=Baishnabghata+Patuli+Township+Kolkata+700094"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-[11px] font-body font-semibold text-[#00B4A6] hover:text-[#00a396] transition-colors"
+                  className="inline-flex items-center gap-1 text-[11px] font-body font-semibold text-[#00B4A6] hover:text-[#00a396] transition-colors flex-shrink-0"
                 >
                   <span>View on Maps</span>
                   <ExternalLink size={10} />

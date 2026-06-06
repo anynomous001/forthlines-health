@@ -49,7 +49,7 @@ export default function ReportTracker() {
   return (
     <section 
       id="report-tracker" 
-      className="bg-[#F8FAFC] py-24 border-t border-slate-100"
+      className="bg-[#F8FAFC] py-16 lg:py-24 border-t border-slate-100"
       aria-labelledby="tracker-heading"
     >
       <div className="max-w-6xl mx-auto px-6">
@@ -110,7 +110,7 @@ export default function ReportTracker() {
 
             {/* Right Column (55% width) - Vertical Stepper Card */}
             <div className="lg:col-span-7 flex justify-center lg:justify-end">
-              <div className="w-full max-w-[420px] bg-white border border-slate-200/80 rounded-2xl p-8 shadow-[0_10px_30px_rgba(15,23,42,0.02)] text-left">
+              <div className="w-full max-w-[420px] bg-white border border-slate-200/80 rounded-2xl p-5 sm:p-8 shadow-[0_10px_30px_rgba(15,23,42,0.02)] text-left">
                 
                 {/* Stepper Header */}
                 <div className="mb-8 border-b border-slate-100 pb-4">

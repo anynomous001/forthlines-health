@@ -63,10 +63,19 @@ const services = [
 ];
 
 export default function Services() {
+  // Combine services and insert marketing box structure at index 4 (5th card)
+  const gridItems = [];
+  services.forEach((service, index) => {
+    if (index === 4) {
+      gridItems.push({ isMarketing: true });
+    }
+    gridItems.push(service);
+  });
+
   return (
     <section 
       id="services" 
-      className="bg-white py-24 border-t border-slate-100"
+      className="bg-white py-16 lg:py-24 border-t border-slate-100"
       aria-labelledby="services-heading"
     >
       <div className="max-w-7xl mx-auto px-6">
@@ -89,20 +98,51 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Services Grid (3-column layout for larger cards) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-          {services.map((service, index) => {
-            const Icon = service.icon;
+        {/* Services Grid (3-column layout with reduced card sizes) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 gap-y-10 lg:gap-y-12">
+          {gridItems.map((item, index) => {
+            if (item.isMarketing) {
+              return (
+                <div 
+                  key="marketing-hook"
+                  className="flex flex-col items-center justify-center text-center p-6 sm:p-7 select-none min-h-[260px] h-full w-full sm:col-span-2 lg:col-span-1"
+                >
+                  <div className="flex flex-col items-center justify-center w-full max-w-[315px] mx-auto">
+                    <span className="text-[11.5px] sm:text-[12.5px] uppercase tracking-[2.5px] font-bold text-[#00B4A6] mb-3.5 block">
+                      FORTHLINES QUALITY
+                    </span>
+                    <h3 className="font-display font-medium text-[23px] sm:text-[25px] text-[#0A1628] leading-tight mb-3.5">
+                      Accurate reports. <br />
+                      Same-day delivery.
+                    </h3>
+                    <p className="font-body text-[14px] sm:text-[14.5px] text-[#475569] leading-relaxed mb-5.5">
+                      Every diagnostic parameter is verified by certified pathologists. Get precise digital reports pushed straight to your WhatsApp.
+                    </p>
+                    <a 
+                      href="https://wa.me/918777578862?text=Hi%2C%20I%20want%2520to%20book%20a%2520test%20at%20Forthlines%20Diagnostics"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-[13.5px] sm:text-[14.5px] font-body font-semibold text-[#00B4A6] hover:text-[#00a396] transition-colors"
+                    >
+                      <span>Book a Home Visit</span>
+                      <span className="text-sm font-normal">→</span>
+                    </a>
+                  </div>
+                </div>
+              );
+            }
+
+            const Icon = item.icon;
             return (
               <article 
                 key={index} 
                 className="group flex flex-col bg-white border border-slate-200/80 hover:border-[#00B4A6]/40 rounded-[20px] overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(15,23,42,0.04)] select-none"
               >
-                {/* Card Top: Image with arrow icon overlay */}
-                <div className="w-full h-48 overflow-hidden relative">
+                {/* Card Top: Image with arrow icon overlay (height reduced to h-40) */}
+                <div className="w-full h-40 overflow-hidden relative">
                   <img 
-                    src={service.image} 
-                    alt={service.name} 
+                    src={item.image} 
+                    alt={item.name} 
                     className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 select-none pointer-events-none"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/10 via-transparent to-transparent"></div>
@@ -113,20 +153,20 @@ export default function Services() {
                   </div>
                 </div>
 
-                {/* Card Bottom: Content with floating icon bubble */}
-                <div className="relative pt-9 px-7 pb-7 text-left flex-grow flex flex-col justify-between">
+                {/* Card Bottom: Content with floating icon bubble (padding reduced to pt-8 px-6 pb-6) */}
+                <div className="relative pt-8 px-6 pb-6 text-left flex-grow flex flex-col justify-between">
                   
-                  {/* Floating Icon Bubble overlapping the image boundary */}
-                  <div className="absolute -top-6 left-7 w-12 h-12 bg-white border border-slate-200/85 shadow-[0_4px_12px_rgba(15,23,42,0.04)] text-[#00B4A6] flex items-center justify-center rounded-full group-hover:bg-[#00B4A6] group-hover:text-white group-hover:border-[#00B4A6] transition-all duration-300 z-10">
-                    <Icon size={20} />
+                  {/* Floating Icon Bubble overlapping the image boundary (size reduced to w-10 h-10) */}
+                  <div className="absolute -top-5 left-6 w-10 h-10 bg-white border border-slate-200/85 shadow-[0_4px_12px_rgba(15,23,42,0.04)] text-[#00B4A6] flex items-center justify-center rounded-full group-hover:bg-[#00B4A6] group-hover:text-white group-hover:border-[#00B4A6] transition-all duration-300 z-10">
+                    <Icon size={18} />
                   </div>
 
                   <div>
-                    <h3 className="font-display font-semibold text-[#0A1628] text-[18px] mb-2 group-hover:text-[#00B4A6] transition-colors duration-200">
-                      {service.name}
+                    <h3 className="font-display font-semibold text-[#0A1628] text-[16.5px] mb-2 group-hover:text-[#00B4A6] transition-colors duration-200">
+                      {item.name}
                     </h3>
-                    <p className="font-body text-[13.5px] text-[#475569] leading-relaxed">
-                      {service.desc}
+                    <p className="font-body text-[13px] text-[#475569] leading-relaxed">
+                      {item.desc}
                     </p>
                   </div>
                 </div>
