@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-surface-light: #F8FAFC;
+  --color-border-custom: rgba(15, 23, 42, 0.08);
+  --color-accent: #00B4A6;
+  --color-accent-glow: rgba(0, 180, 166, 0.08);
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --color-whatsapp: #25D366;
+  
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Outfit', system-ui, sans-serif;
+  
+  --animate-symptom-pulse: symptomPulse 0.4s ease;
+  --animate-status-pulse: statusPulse 1.5s ease infinite;
+  --animate-pin-bounce: pinBounce 2s ease infinite;
+}
+
+@keyframes symptomPulse {
+  0% { transform: translateY(-3px) scale(1); }
+  50% { transform: translateY(-3px) scale(1.06); }
+  100% { transform: translateY(-3px) scale(1); }
+}
+
+@keyframes statusPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+@keyframes pinBounce {
+  0%, 100% { transform: rotate(-45deg) translateY(0); }
+  50% { transform: rotate(-45deg) translateY(-6px); }
+}
+
+/* ─── Global Styles & Utilities ─── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface-light);
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Fade-in-up animations */
+.fade-in-target {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in-target.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Floating WhatsApp button ping keyframe */
+#float-wa::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 211, 102, 0.3);
+  animation: waPing 2s ease infinite;
+}
+
+@keyframes waPing {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Custom CSS street maps coordinates */
+.map-placeholder-streets {
+  background: linear-gradient(135deg, #e2e8f0 0%, #f1f5f9 50%, #e2e8f0 100%);
+}
+.map-grid-street {
+  background: rgba(15, 23, 42, 0.03);
+}
+.map-grid-block {
+  background: rgba(0, 180, 166, 0.04);
+  border: 1px solid rgba(0, 180, 166, 0.08);
+}
