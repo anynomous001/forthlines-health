@@ -74,7 +74,7 @@ export default function Reviews() {
           {reviewsList.map((review, idx) => (
             <article 
               key={idx} 
-              className="bg-white border border-slate-200/80 hover:border-[#00B4A6]/30 rounded-[20px] p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(15,23,42,0.03)] relative overflow-hidden"
+              className="bg-white border border-slate-200/80 hover:border-[#00B4A6]/30 rounded-[20px] p-6 sm:p-8 flex flex-col justify-between transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(15,23,42,0.03)] relative overflow-hidden"
             >
               {/* Quote marks background decoration */}
               <div className="absolute top-4 sm:top-6 right-6 sm:right-8 font-display text-[#00B4A6]/8 text-[40px] sm:text-[48px] select-none pointer-events-none font-bold leading-none">

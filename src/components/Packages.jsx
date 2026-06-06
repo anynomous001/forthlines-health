@@ -101,7 +101,7 @@ export default function Packages() {
           {packageList.map((pkg, idx) => (
             <article 
               key={idx} 
-              className={`package-card relative bg-white rounded-[20px] p-5 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 select-none ${
+              className={`package-card relative bg-white rounded-[20px] p-5 sm:p-7 flex flex-col justify-between transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-2 select-none ${
                 pkg.popular 
                   ? 'border border-[#00B4A6] shadow-[0_12px_36px_rgba(0,180,166,0.08)] ring-2 ring-[#00B4A6]/10' 
                   : 'border border-slate-200/80 hover:border-[#00B4A6]/45 hover:shadow-[0_16px_40px_rgba(15,23,42,0.04)]'

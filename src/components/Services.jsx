@@ -136,7 +136,7 @@ export default function Services() {
             return (
               <article 
                 key={index} 
-                className="group flex flex-col bg-white border border-slate-200/80 hover:border-[#00B4A6]/40 rounded-[20px] overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(15,23,42,0.04)] select-none"
+                className="group flex flex-col bg-white border border-slate-200/80 hover:border-[#00B4A6]/40 rounded-[20px] overflow-hidden transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(15,23,42,0.04)] select-none"
               >
                 {/* Card Top: Image with arrow icon overlay (height reduced to h-40) */}
                 <div className="w-full h-40 overflow-hidden relative">

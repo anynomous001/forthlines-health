@@ -78,11 +78,20 @@ h1, h2, h3, h4 {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
 }
 
 .fade-in-target.visible {
   opacity: 1;
   transform: translateY(0);
+  will-change: auto;
+}
+
+/* Disable hover lift on touch devices — prevents card jump on tap */
+@media (hover: none) {
+  [class*="hover:-translate"]:hover {
+    transform: translateY(0) !important;
+  }
 }
 
 /* Floating WhatsApp button ping keyframe */
