@@ -16,7 +16,7 @@ export default function Hero() {
   return (
     <section 
       id="home" 
-      className="pt-26 sm:pt-28 lg:pt-32 pb-12 lg:pb-16 relative bg-white flex items-center justify-center overflow-hidden"
+      className="pt-36 sm:pt-32 lg:pt-36 pb-12 lg:pb-16 relative bg-white flex items-center justify-center overflow-hidden"
       aria-label="Hero section"
     >
       {/* Soft Teal/Blue Gradient Glow behind the card on the right */}
