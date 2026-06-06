@@ -7,49 +7,58 @@ import {
   HeartPulse, 
   Activity, 
   Home,
-  Candy 
+  Candy,
+  ArrowUpRight
 } from 'lucide-react';
 
 const services = [
   {
     icon: Droplet,
     name: 'Blood Tests',
-    desc: 'CBC, LFT, KFT, lipid panels, HbA1c and more'
+    desc: 'CBC, LFT, KFT, lipid panels, thyroid and more.',
+    image: '/service-blood-test.png'
   },
   {
     icon: Microscope,
     name: 'Pathology',
-    desc: 'Biopsy, histopathology, cytology panels'
+    desc: 'Biopsy, histopathology and cytology workups.',
+    image: '/service-pathology.png'
   },
   {
     icon: FlaskConical,
-    name: 'Urine & Stool',
-    desc: 'Routine and microscopy, culture testing'
+    name: 'Urine & Stool Analysis',
+    desc: 'Routine analysis with microscopy panels.',
+    image: '/service-urine-analysis.png'
   },
   {
     icon: Scan,
     name: 'X-Ray & Imaging',
-    desc: 'Digital X-ray, chest and skeletal imaging'
+    desc: 'Digital X-ray — chest and skeletal studies.',
+    image: '/service-xray.png'
   },
   {
     icon: HeartPulse,
     name: 'ECG',
-    desc: 'Resting ECG and cardiac monitoring'
+    desc: 'Resting ECG and short cardiac monitoring.',
+    image: '/service-ecg.png'
   },
   {
     icon: Candy,
     name: 'Diabetes Panel',
-    desc: 'HbA1c, fasting glucose, insulin, post-meal'
+    desc: 'HbA1c, fasting glucose and insulin assays.',
+    image: '/service-diabetes.png'
   },
   {
     icon: Activity,
     name: 'Thyroid Profile',
-    desc: 'TSH, T3, T4 complete function panel'
+    desc: 'Full TSH, T3 and T4 hormone panel.',
+    image: '/service-thyroid.png'
   },
   {
     icon: Home,
     name: 'Home Collection',
-    desc: 'Doorstep sample pickup, book via WhatsApp'
+    desc: 'Doorstep sample pickup by trained technicians.',
+    image: '/service-home-collection.png'
   }
 ];
 
@@ -57,45 +66,70 @@ export default function Services() {
   return (
     <section 
       id="services" 
-      className="bg-[#F8FAFC] py-24 border-t border-slate-100"
+      className="bg-white py-24 border-t border-slate-100"
       aria-labelledby="services-heading"
     >
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16 fade-in-target">
-          <span className="text-[10px] uppercase tracking-[3px] font-semibold text-[#00B4A6] mb-3">
-            WHAT WE OFFER
-          </span>
-          <h2 id="services-heading" className="font-display font-semibold text-3xl sm:text-4xl text-[#0F172A] tracking-tight">
-            Our Diagnostic Services
-          </h2>
-          <div className="h-[2px] bg-[#00B4A6] w-12 mt-4 rounded"></div>
+        {/* Two-column Header Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16 text-left">
+          <div className="lg:col-span-7">
+            <span className="text-[10px] uppercase tracking-[3px] font-bold text-[#00B4A6] mb-3 block">
+              OUR SERVICES
+            </span>
+            <h2 id="services-heading" className="font-display font-semibold text-3xl sm:text-[40px] text-[#0A1628] leading-[1.2]">
+              Comprehensive diagnostic services, <br />
+              close to your home.
+            </h2>
+          </div>
+          <div className="lg:col-span-5 lg:pl-4">
+            <p className="font-body text-[14.5px] text-[#475569] leading-relaxed">
+              From everyday blood tests to specialised pathology — accurate workups delivered same-day, by qualified technicians you can trust.
+            </p>
+          </div>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Services Grid (3-column layout for larger cards) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <article 
                 key={index} 
-                className="group relative bg-white border border-slate-200/80 hover:border-[#00B4A6]/40 p-8 rounded-[16px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(15,23,42,0.05)] select-none overflow-hidden"
+                className="group flex flex-col bg-white border border-slate-200/80 hover:border-[#00B4A6]/40 rounded-[20px] overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(15,23,42,0.04)] select-none"
               >
-                {/* Accent glow on hover */}
-                <div className="absolute -inset-px bg-gradient-to-br from-[#00B4A6]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-[16px]"></div>
-
-                {/* Icon wrapper */}
-                <div className="w-12 h-12 bg-[#00B4A6]/10 text-[#00B4A6] flex items-center justify-center rounded-[12px] mb-6 group-hover:bg-[#00B4A6] group-hover:text-white transition-colors duration-300">
-                  <Icon size={20} />
+                {/* Card Top: Image with arrow icon overlay */}
+                <div className="w-full h-48 overflow-hidden relative">
+                  <img 
+                    src={service.image} 
+                    alt={service.name} 
+                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 select-none pointer-events-none"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/10 via-transparent to-transparent"></div>
+                  
+                  {/* Diagonal Arrow in floating circular badge */}
+                  <div className="absolute top-4 right-4 w-7.5 h-7.5 bg-white/90 backdrop-blur-sm text-slate-400 group-hover:text-[#00B4A6] flex items-center justify-center rounded-full shadow-sm transition-colors duration-300 z-10">
+                    <ArrowUpRight size={14} />
+                  </div>
                 </div>
 
-                <h3 className="font-body font-semibold text-[#0F172A] text-[15px] mb-3 group-hover:text-[#00B4A6] transition-colors duration-200">
-                  {service.name}
-                </h3>
-                <p className="font-body text-[13px] text-[#475569] leading-relaxed">
-                  {service.desc}
-                </p>
+                {/* Card Bottom: Content with floating icon bubble */}
+                <div className="relative pt-9 px-7 pb-7 text-left flex-grow flex flex-col justify-between">
+                  
+                  {/* Floating Icon Bubble overlapping the image boundary */}
+                  <div className="absolute -top-6 left-7 w-12 h-12 bg-white border border-slate-200/85 shadow-[0_4px_12px_rgba(15,23,42,0.04)] text-[#00B4A6] flex items-center justify-center rounded-full group-hover:bg-[#00B4A6] group-hover:text-white group-hover:border-[#00B4A6] transition-all duration-300 z-10">
+                    <Icon size={20} />
+                  </div>
+
+                  <div>
+                    <h3 className="font-display font-semibold text-[#0A1628] text-[18px] mb-2 group-hover:text-[#00B4A6] transition-colors duration-200">
+                      {service.name}
+                    </h3>
+                    <p className="font-body text-[13.5px] text-[#475569] leading-relaxed">
+                      {service.desc}
+                    </p>
+                  </div>
+                </div>
               </article>
             );
           })}

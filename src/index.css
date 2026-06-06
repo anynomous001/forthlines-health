@@ -18,6 +18,12 @@
   --animate-symptom-pulse: symptomPulse 0.4s ease;
   --animate-status-pulse: statusPulse 1.5s ease infinite;
   --animate-pin-bounce: pinBounce 2s ease infinite;
+  --animate-marquee: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
 }
 
 @keyframes symptomPulse {
@@ -84,7 +90,7 @@ h1, h2, h3, h4 {
   content: '';
   position: absolute;
   inset: -4px;
-  border-radius: 50%;
+  border-radius: 9999px;
   border: 2px solid rgba(37, 211, 102, 0.3);
   animation: waPing 2s ease infinite;
 }

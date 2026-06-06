@@ -1,25 +1,18 @@
 import React, { useState } from 'react';
 import { 
-  ClipboardCheck, 
-  Droplet, 
-  Activity, 
-  FileCheck, 
+  Search, 
+  Info,
   Check,
-  Info
+  FlaskConical,
+  Activity,
+  FileCheck
 } from 'lucide-react';
-
-const steps = [
-  { id: 0, label: 'Booked', icon: ClipboardCheck },
-  { id: 1, label: 'Sample Collected', icon: Droplet },
-  { id: 2, label: 'Processing', icon: Activity },
-  { id: 3, label: 'Report Ready', icon: FileCheck }
-];
 
 export default function ReportTracker() {
   const [mobileNumber, setMobileNumber] = useState('');
   const [error, setError] = useState(false);
   const [refCode, setRefCode] = useState('');
-  const [currentStep, setCurrentStep] = useState(-1); // -1 = not started
+  const [currentStep, setCurrentStep] = useState(-1); // -1 = awaiting input, 0 = sample collected, 1 = processing, 2 = report ready
 
   const handleInputChange = (e) => {
     const value = e.target.value.replace(/\D/g, '');
@@ -42,14 +35,11 @@ export default function ReportTracker() {
     const ref = (parseInt(lastDigits, 10) * 7) % 9999 + 1000;
     setRefCode(String(ref).padStart(4, '0'));
 
-    // Animate step loading
-    setCurrentStep(0);
+    // Animate step progress vertically
+    setCurrentStep(0); // Sample Collected
     setTimeout(() => {
-      setCurrentStep(1);
-      setTimeout(() => {
-        setCurrentStep(2); // Keep processing as the active, pulsing step
-      }, 450);
-    }, 450);
+      setCurrentStep(1); // Processing
+    }, 600);
   };
 
   const handleKeyDown = (e) => {
@@ -59,119 +49,154 @@ export default function ReportTracker() {
   return (
     <section 
       id="report-tracker" 
-      className="bg-white py-24 border-t border-slate-100"
+      className="bg-[#F8FAFC] py-24 border-t border-slate-100"
       aria-labelledby="tracker-heading"
     >
-      <div className="max-w-3xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         
-        {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16 fade-in-target">
-          <span className="text-[10px] uppercase tracking-[3px] font-semibold text-[#00B4A6] mb-3">
-            REPORT STATUS
-          </span>
-          <h2 id="tracker-heading" className="font-display font-semibold text-3xl sm:text-4xl text-[#0F172A] tracking-tight">
-            Track Your <span className="italic font-normal text-[#00B4A6]">Report</span>
-          </h2>
-          <p className="font-body text-[14px] text-[#475569] max-w-md mt-4 leading-relaxed">
-            Enter your registered mobile number to check report status
-          </p>
-        </div>
+        {/* Container Box */}
+        <div className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-[0_15px_50px_rgba(15,23,42,0.03)] relative overflow-hidden">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left Column (45% width) */}
+            <div className="lg:col-span-5 flex flex-col items-start text-left select-none">
+              
+              {/* Badge */}
+              <span className="inline-block text-[9px] uppercase tracking-[1.5px] font-bold text-white bg-[#0A1628] px-4 py-1.5 rounded-full mb-6">
+                TRACK YOUR REPORT STATUS
+              </span>
 
-        {/* Input widget */}
-        <div className="bg-[#F8FAFC] border border-slate-200/60 p-8 rounded-2xl mb-8 shadow-sm">
-          <div className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto mb-8">
-            <input
-              type="tel"
-              value={mobileNumber}
-              onChange={handleInputChange}
-              onKeyDown={handleKeyDown}
-              maxLength="10"
-              inputMode="numeric"
-              placeholder="Enter mobile number"
-              className={`flex-1 bg-white border ${
-                error ? 'border-[#EF4444]' : 'border-slate-200'
-              } text-[#0F172A] font-body text-sm px-6 py-3.5 rounded-lg focus:outline-none focus:border-[#00B4A6] focus:ring-1 focus:ring-[#00B4A6] transition-all`}
-              aria-label="Enter your mobile number"
-            />
-            <button
-              onClick={handleTrack}
-              className="bg-[#00B4A6] text-white font-body font-semibold text-sm px-8 py-3.5 rounded-lg hover:bg-[#00d4c4] transition-all duration-200 shadow-md hover:shadow-lg"
-            >
-              Track Status
-            </button>
+              {/* Title */}
+              <h2 id="tracker-heading" className="font-display font-semibold text-3xl sm:text-[40px] text-[#0A1628] tracking-tight leading-none mb-6">
+                Where's my report?
+              </h2>
+
+              {/* Description */}
+              <p className="font-body text-[14px] text-[#475569] leading-relaxed mb-8 max-w-sm">
+                Enter the mobile number you booked with to see your live status. Reports are also pushed to WhatsApp automatically.
+              </p>
+
+              {/* Form Input Row (Rounded-full as in screenshot) */}
+              <div className="flex w-full items-center max-w-sm gap-2 bg-[#F8FAFC] border border-slate-200 rounded-full px-4 py-1.5 mb-6 focus-within:border-[#00B4A6] transition-all">
+                <Search size={16} className="text-slate-400 flex-shrink-0" />
+                <input
+                  type="tel"
+                  value={mobileNumber}
+                  onChange={handleInputChange}
+                  onKeyDown={handleKeyDown}
+                  maxLength="10"
+                  inputMode="numeric"
+                  placeholder="Mobile number"
+                  className={`w-full bg-transparent border-0 text-[#0A1628] font-body text-[13px] py-1.5 focus:outline-none focus:ring-0 ${
+                    error ? 'placeholder-[#EF4444]' : 'placeholder-slate-400'
+                  }`}
+                  aria-label="Enter your mobile number"
+                />
+                <button
+                  onClick={handleTrack}
+                  className="bg-[#0A1628] hover:bg-slate-800 text-white font-body font-semibold text-[12px] px-6 py-2.5 rounded-full transition-colors flex-shrink-0 shadow-sm"
+                >
+                  Track
+                </button>
+              </div>
+
+              {/* Note */}
+              <div className="flex items-center gap-2 font-body text-[11px] text-[#475569]/60">
+                <Info size={13} className="text-[#475569]/50" />
+                <span>Available after booking. This is a preview — full tracking coming soon.</span>
+              </div>
+            </div>
+
+            {/* Right Column (55% width) - Vertical Stepper Card */}
+            <div className="lg:col-span-7 flex justify-center lg:justify-end">
+              <div className="w-full max-w-[420px] bg-white border border-slate-200/80 rounded-2xl p-8 shadow-[0_10px_30px_rgba(15,23,42,0.02)] text-left">
+                
+                {/* Stepper Header */}
+                <div className="mb-8 border-b border-slate-100 pb-4">
+                  <div className="text-[10px] font-bold uppercase tracking-[1.5px] text-slate-400 mb-1">
+                    BOOKING
+                  </div>
+                  <h3 className="font-display font-semibold text-[19px] text-[#0A1628] leading-tight">
+                    {currentStep >= 0 
+                      ? `Ref #FD-2026-${refCode}` 
+                      : 'Awaiting input'
+                    }
+                  </h3>
+                </div>
+
+                {/* Vertical Stepper list */}
+                <div className="flex flex-col gap-8 relative select-none pl-2">
+                  
+                  {/* Vertical connector line */}
+                  <div className="absolute top-[18px] bottom-[18px] left-[17px] w-[1px] bg-slate-200 z-0"></div>
+
+                  {/* Step 1: Sample Collected */}
+                  <div className="flex items-start gap-4 relative z-10">
+                    <div className={`w-9 h-9 rounded-full flex items-center justify-center border-2 transition-all duration-300 ${
+                      currentStep >= 0 
+                        ? 'bg-[#00B4A6] border-[#00B4A6] text-white shadow-sm' 
+                        : 'bg-white border-slate-200 text-slate-300'
+                    }`}>
+                      {currentStep >= 0 ? <Check size={14} strokeWidth={3} /> : <FlaskConical size={14} />}
+                    </div>
+                    <div>
+                      <div className={`font-body font-bold text-[13px] leading-tight ${currentStep >= 0 ? 'text-[#0A1628]' : 'text-slate-400'}`}>
+                        Sample Collected
+                      </div>
+                      <div className="font-body text-[11px] text-[#475569] mt-0.5">
+                        {currentStep >= 0 ? 'Completed' : 'Pending'}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Step 2: Processing */}
+                  <div className="flex items-start gap-4 relative z-10">
+                    <div className={`w-9 h-9 rounded-full flex items-center justify-center border-2 transition-all duration-300 ${
+                      currentStep > 1 
+                        ? 'bg-[#00B4A6] border-[#00B4A6] text-white' 
+                        : currentStep === 1 
+                        ? 'bg-transparent border-[#00B4A6] text-[#00B4A6] shadow-[0_0_10px_rgba(0,180,166,0.15)] animate-status-pulse' 
+                        : 'bg-white border-slate-200 text-slate-300'
+                    }`}>
+                      {currentStep > 1 ? <Check size={14} strokeWidth={3} /> : <Activity size={14} />}
+                    </div>
+                    <div>
+                      <div className={`font-body font-bold text-[13px] leading-tight ${currentStep >= 1 ? 'text-[#0A1628]' : 'text-slate-400'}`}>
+                        Processing
+                      </div>
+                      <div className="font-body text-[11px] text-[#475569] mt-0.5">
+                        {currentStep > 1 ? 'Completed' : currentStep === 1 ? 'Active' : 'Pending'}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Step 3: Report Ready */}
+                  <div className="flex items-start gap-4 relative z-10">
+                    <div className={`w-9 h-9 rounded-full flex items-center justify-center border-2 transition-all duration-300 ${
+                      currentStep === 2 
+                        ? 'bg-[#00B4A6] border-[#00B4A6] text-white' 
+                        : 'bg-white border-slate-200 text-slate-300'
+                    }`}>
+                      <FileCheck size={14} />
+                    </div>
+                    <div>
+                      <div className={`font-body font-bold text-[13px] leading-tight ${currentStep === 2 ? 'text-[#0A1628]' : 'text-slate-400'}`}>
+                        Report Ready
+                      </div>
+                      <div className="font-body text-[11px] text-[#475569] mt-0.5">
+                        {currentStep === 2 ? 'Ready' : 'Pending'}
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
           </div>
 
-          {/* Stepper display */}
-          {currentStep >= 0 && (
-            <div className="pt-6 border-t border-slate-200">
-              
-              <div className="font-body text-[11px] font-semibold tracking-[1px] uppercase text-[#475569] text-center mb-10">
-                Sample Ref #FD-2026-{refCode || '----'}
-              </div>
-
-              {/* Stepper Steps */}
-              <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start gap-8 relative select-none">
-                
-                {/* Connecting lines desktop */}
-                <div className="hidden sm:block absolute top-[18px] left-[12%] right-[12%] h-[2px] bg-slate-200 -z-0"></div>
-
-                {steps.map((step) => {
-                  const Icon = step.icon;
-                  const isDone = currentStep > step.id;
-                  const isActive = currentStep === step.id;
-                  
-                  return (
-                    <div 
-                      key={step.id}
-                      className="flex-1 flex flex-col items-center text-center relative z-10 w-full"
-                    >
-                      {/* Connector Line overlay for done items */}
-                      {step.id > 0 && isDone && (
-                        <div className="hidden sm:block absolute top-[18px] right-[50%] left-[-50%] h-[2px] bg-[#00B4A6] -z-10"></div>
-                      )}
-
-                      {/* Icon bubble */}
-                      <div 
-                        className={`w-9.5 h-9.5 rounded-full flex items-center justify-center border-2 transition-all duration-300 ${
-                          isDone 
-                            ? 'bg-[#00B4A6] border-[#00B4A6] text-white' 
-                            : isActive 
-                            ? 'bg-transparent border-[#00B4A6] text-[#00B4A6] shadow-[0_0_12px_rgba(0,180,166,0.2)] animate-status-pulse' 
-                            : 'bg-white border-slate-200 text-slate-300'
-                        }`}
-                      >
-                        {isDone ? (
-                          <Check size={14} strokeWidth={3} />
-                        ) : (
-                          <Icon size={14} />
-                        )}
-                      </div>
-
-                      <span 
-                        className={`font-body text-[12px] font-semibold mt-3 ${
-                          isDone || isActive ? 'text-[#00B4A6]' : 'text-slate-400'
-                        }`}
-                      >
-                        {step.label}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-
-            </div>
-          )}
-        </div>
-
-        {/* Info text */}
-        <div className="flex items-center gap-2 justify-center font-body text-[12px] text-[#475569]/60">
-          <Info size={14} className="text-[#475569]/50" />
-          <span>
-            {currentStep >= 0 
-              ? 'Your report is currently processing in the lab. Expected turnaround: 4 hours.'
-              : 'Available after booking. Reports ready within 4–6 hours of collection.'
-            }
-          </span>
         </div>
 
       </div>

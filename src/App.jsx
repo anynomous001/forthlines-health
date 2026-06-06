@@ -49,7 +49,7 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-[#0A1628] text-[#F1F5F9] font-body selection:bg-[#0DCCB8]/30 selection:text-white">
+    <div className="bg-white text-[#0F172A] font-body selection:bg-[#00B4A6]/20 selection:text-[#0F172A]">
       {/* Proof banner at very top */}
       <div className="bg-[#0DCCB8] text-[#0A1628] font-body font-semibold text-[12px] tracking-[0.5px] text-center py-2.5 px-4 relative z-50">
         Sample mockup for Forthlines Diagnostics — built by{' '}

@@ -6,39 +6,33 @@ import {
   TrendingUp, 
   Bone, 
   Droplet,
-  MessageCircle
+  CheckCircle2
 } from 'lucide-react';
 
 const symptomData = {
   'fatigue': {
-    label: 'RECOMMENDED TESTS FOR: Fatigue',
-    tests: ['CBC', 'Thyroid Profile (TSH T3 T4)', 'Vitamin B12', 'Iron Studies', 'Vitamin D', 'Blood Sugar'],
-    note: 'Fatigue can be caused by anemia, thyroid issues, or nutritional deficiencies. These tests cover the most common root causes.'
+    title: 'Fatigue',
+    tests: ['CBC', 'Thyroid Profile', 'Vitamin B12', 'Iron Studies', 'Vitamin D', 'Blood Sugar']
   },
   'chest-pain': {
-    label: 'RECOMMENDED TESTS FOR: Chest Pain',
-    tests: ['ECG', 'Lipid Profile', 'CRP', 'Troponin I', 'CBC'],
-    note: 'Chest pain is a critical symptom. These cardiac-related blood tests and ECG monitor risk factors.'
+    title: 'Chest Pain',
+    tests: ['ECG', 'Lipid Profile', 'CRP', 'Troponin I', 'CBC']
   },
   'fever': {
-    label: 'RECOMMENDED TESTS FOR: Fever',
-    tests: ['CBC with Differential', 'Malaria Antigen', 'Dengue NS1', 'Typhoid Widal', 'Blood Culture', 'CRP'],
-    note: 'For ongoing fever, these tests scan for common bacterial and viral infectious profiles.'
+    title: 'Fever',
+    tests: ['CBC', 'Malaria Antigen', 'Dengue NS1', 'Urine Routine']
   },
   'weight-gain': {
-    label: 'RECOMMENDED TESTS FOR: Unexplained Weight Gain',
-    tests: ['Thyroid Profile', 'Fasting Insulin', 'HbA1c', 'Lipid Profile', 'Cortisol', 'CBC'],
-    note: 'Unexplained weight gain is often linked to metabolic rates, insulin resistance, or thyroid function.'
+    title: 'Unexplained Weight Gain',
+    tests: ['Thyroid Profile', 'Fasting Insulin', 'HbA1c', 'Lipid Profile', 'Cortisol', 'CBC']
   },
   'joint-pain': {
-    label: 'RECOMMENDED TESTS FOR: Joint Pain',
-    tests: ['Uric Acid', 'Rheumatoid Factor', 'Anti-CCP', 'ESR', 'CRP', 'Vitamin D'],
-    note: 'Joint pain tests scan for inflammatory indicators, arthritis profiles, and bone density factors.'
+    title: 'Joint Pain',
+    tests: ['Uric Acid', 'Rheumatoid Factor', 'Anti-CCP', 'ESR', 'CRP', 'Vitamin D']
   },
   'frequent-urination': {
-    label: 'RECOMMENDED TESTS FOR: Frequent Urination',
-    tests: ['Urine Routine', 'Urine Culture', 'Blood Sugar Fasting & PP', 'HbA1c', 'KFT'],
-    note: 'Frequent urination commonly maps to urinary tract infections (UTI) or blood sugar indicators.'
+    title: 'Frequent Urination',
+    tests: ['Urine Routine', 'Urine Culture', 'Blood Sugar Fasting & PP', 'HbA1c', 'KFT']
   }
 };
 
@@ -52,13 +46,16 @@ const symptoms = [
 ];
 
 export default function SymptomFinder() {
-  const [activeSymptom, setActiveSymptom] = useState(null);
+  const [activeSymptom, setActiveSymptom] = useState('fever'); // Default to fever to showcase the layout in screenshot
 
   const handleSymptomClick = (symptomId) => {
     setActiveSymptom(activeSymptom === symptomId ? null : symptomId);
   };
 
   const selectedData = activeSymptom ? symptomData[activeSymptom] : null;
+  const activeSymptomObj = symptoms.find(s => s.id === activeSymptom);
+  const ActiveIcon = activeSymptomObj ? activeSymptomObj.icon : null;
+
   const testListStr = selectedData ? selectedData.tests.join(', ') : '';
   const waUrl = selectedData 
     ? `https://wa.me/918777578862?text=Hi%2C%20I%20need%20to%20book%20the%20following%20tests%20for%20${activeSymptom}%3A%20${encodeURIComponent(testListStr)}`
@@ -70,92 +67,129 @@ export default function SymptomFinder() {
       className="bg-white py-24 border-t border-slate-100"
       aria-labelledby="finder-heading"
     >
-      <div className="max-w-4xl mx-auto px-6">
-        
-        {/* Bold typographic moment */}
-        <div className="flex flex-col items-center text-center mb-16 fade-in-target">
-          <span className="text-[10px] uppercase tracking-[3px] font-semibold text-[#00B4A6] mb-3">
-            SMART TEST FINDER
-          </span>
-          <h2 id="finder-heading" className="font-display font-semibold text-3xl sm:text-5xl text-[#0F172A] tracking-tight leading-none mb-6">
-            Not sure which <span className="italic font-normal text-[#00B4A6]">test</span> you need?
-          </h2>
-          <p className="font-body text-[15px] text-[#475569] max-w-xl leading-relaxed">
-            Select your symptom below — we'll tell you which tests are right for you.
-          </p>
-        </div>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          
+          {/* Left Column (40% width) */}
+          <div className="lg:col-span-5 flex flex-col items-start text-left">
+            <span className="inline-block text-[10px] uppercase tracking-[1.5px] font-bold text-[#00B4A6] border border-[#00B4A6]/20 bg-[#00B4A6]/5 px-3.5 py-1.5 rounded-full mb-6 select-none">
+              SMART TEST FINDER
+            </span>
+            
+            <h2 id="finder-heading" className="font-display font-semibold text-3xl sm:text-4xl text-[#0A1628] tracking-tight leading-none mb-6">
+              Not sure which test you need?
+            </h2>
+            
+            <p className="font-body text-[14.5px] text-[#475569] leading-relaxed mb-8 max-w-md">
+              Tap a symptom and we'll suggest the most relevant diagnostic tests. Then book them directly on WhatsApp — no calls, no forms.
+            </p>
 
-        {/* Symptoms pills row */}
-        <div className="flex flex-wrap gap-3.5 justify-center mb-12">
-          {symptoms.map((symptom) => {
-            const Icon = symptom.icon;
-            const isActive = activeSymptom === symptom.id;
-            return (
-              <button
-                key={symptom.id}
-                onClick={() => handleSymptomClick(symptom.id)}
-                className={`inline-flex items-center gap-2.5 font-body text-[13px] px-6 py-3 rounded-full border transition-all duration-300 cursor-pointer ${
-                  isActive 
-                    ? 'border-[#00B4A6] bg-[#00B4A6]/10 text-[#00B4A6] scale-[1.02] shadow-[0_4px_20px_rgba(0,180,166,0.1)]' 
-                    : 'border-slate-200 text-[#475569] bg-transparent hover:border-[#00B4A6]/60 hover:text-[#00B4A6]'
-                }`}
-                aria-pressed={isActive}
-              >
-                <Icon size={16} className={isActive ? 'text-[#00B4A6]' : 'text-slate-400'} />
-                {symptom.label}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Dynamic results panel */}
-        <div className="min-h-[140px] relative">
-          {!activeSymptom ? (
-            <div className="flex flex-col items-center justify-center py-10 text-center text-slate-300 border border-dashed border-slate-200 rounded-2xl">
-              <i className="ti ti-pointer text-2xl mb-2 text-slate-300"></i>
-              <p className="font-body text-[14px]">Select a symptom above to find recommended tests</p>
-            </div>
-          ) : (
-            selectedData && (
-              <div 
-                className="bg-[#00B4A6]/[0.02] border border-[#00B4A6]/20 p-8 rounded-2xl animate-fade-in-target duration-300 shadow-[0_10px_30px_rgba(0,180,166,0.02)]"
-                style={{ animation: 'fadeInUp 0.4s ease forwards' }}
-              >
-                <div className="text-[10px] tracking-[2px] font-semibold text-[#00B4A6] uppercase mb-4">
-                  {selectedData.label}
-                </div>
-
-                {/* Tests tags chips */}
-                <div className="flex flex-wrap gap-2.5 mb-6">
-                  {selectedData.tests.map((test, index) => (
-                    <span 
-                      key={index}
-                      className="font-body font-medium text-[12px] border border-[#00B4A6]/15 bg-[#00B4A6]/5 text-[#0F172A] px-4 py-1.5 rounded-full"
-                    >
-                      {test}
-                    </span>
-                  ))}
-                </div>
-
-                <p className="font-body text-[13.5px] text-[#475569] leading-relaxed mb-6">
-                  {selectedData.note}
-                </p>
-
-                {/* WhatsApp booking CTA */}
-                <a 
-                  href={waUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20BE5A] text-white font-body font-semibold text-[13.5px] px-8 py-3.5 rounded-full shadow-[0_4px_14px_rgba(37,211,102,0.25)] hover:shadow-[0_6px_20px_rgba(37,211,102,0.35)] transition-all hover:-translate-y-0.5 duration-300"
-                >
-                  <MessageCircle size={16} />
-                  Book these tests → +91 87775 78862
-                </a>
+            {/* Disclaimer Card */}
+            <div className="bg-[#F8FAFC] border border-slate-200/80 rounded-2xl p-6 w-full max-w-md">
+              <div className="font-body text-[9px] font-bold uppercase tracking-[1px] text-slate-400 mb-2">
+                DISCLAIMER
               </div>
-            )
-          )}
-        </div>
+              <p className="font-body text-[12.5px] text-[#475569] leading-relaxed">
+                Suggestions are indicative and based on common clinical patterns. Please consult your physician before booking. Forthlines technicians are happy to help over WhatsApp.
+              </p>
+            </div>
+          </div>
 
+          {/* Right Column (60% width) */}
+          <div className="lg:col-span-7 flex flex-col items-stretch">
+            
+            {/* Symptom pills buttons wrapper */}
+            <div className="flex flex-wrap gap-3 mb-8 justify-start">
+              {symptoms.map((symptom) => {
+                const Icon = symptom.icon;
+                const isActive = activeSymptom === symptom.id;
+                return (
+                  <button
+                    key={symptom.id}
+                    onClick={() => handleSymptomClick(symptom.id)}
+                    className={`inline-flex items-center gap-2.5 font-body text-[13px] px-5 py-3 rounded-full border transition-all duration-300 cursor-pointer ${
+                      isActive 
+                        ? 'border-[#00B4A6] bg-[#0A1628] text-white shadow-[0_0_0_3px_rgba(0,180,166,0.25)]' 
+                        : 'border-slate-200 text-[#475569] bg-white hover:border-[#00B4A6]/60 hover:text-[#000]'
+                    }`}
+                    aria-pressed={isActive}
+                  >
+                    <Icon size={14} className={isActive ? 'text-[#00B4A6]' : 'text-slate-400'} />
+                    {symptom.label}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Dynamic Result Panel Box */}
+            <div className="min-h-[260px] relative">
+              {!activeSymptom ? (
+                <div className="flex flex-col items-center justify-center py-16 text-center text-slate-300 border border-dashed border-slate-200 rounded-3xl bg-[#F8FAFC]/50">
+                  <p className="font-body text-[14px] text-slate-400">Select a symptom above to find recommended tests</p>
+                </div>
+              ) : (
+                selectedData && (
+                  <div 
+                    className="bg-white border border-slate-200/80 p-8 rounded-3xl shadow-[0_15px_45px_rgba(15,23,42,0.04)] text-left"
+                    style={{ animation: 'fadeInUp 0.4s ease forwards' }}
+                  >
+                    
+                    {/* Panel Header */}
+                    <div className="flex items-center justify-between gap-4 mb-6">
+                      <div>
+                        <div className="text-[10px] tracking-[1.5px] font-bold text-slate-400 uppercase mb-1">
+                          RECOMMENDED TESTS FOR
+                        </div>
+                        <h3 className="font-display font-semibold text-2xl text-[#0A1628]">
+                          {selectedData.title}
+                        </h3>
+                      </div>
+                      
+                      {/* Active symptom icon bubble */}
+                      {ActiveIcon && (
+                        <div className="w-11 h-11 bg-[#0A1628] text-[#00B4A6] rounded-full flex items-center justify-center flex-shrink-0 shadow-[0_4px_12px_rgba(10,22,40,0.15)] select-none">
+                          <ActiveIcon size={18} />
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Grid of tests */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                      {selectedData.tests.map((test, index) => (
+                        <div 
+                          key={index}
+                          className="flex items-center gap-3 bg-[#F8FAFC] border border-slate-200/50 px-4 py-3.5 rounded-xl text-left"
+                        >
+                          <CheckCircle2 size={16} className="text-[#00B4A6] flex-shrink-0" />
+                          <span className="font-body text-[13px] font-medium text-[#0A1628] tracking-tight">
+                            {test}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* WhatsApp booking CTA button */}
+                    <a 
+                      href={waUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2.5 bg-[#00B4A6] hover:bg-[#00a396] text-white font-body font-semibold text-[13.5px] px-8 py-3.5 rounded-full shadow-[0_4px_14px_rgba(0,180,166,0.2)] transition-all hover:-translate-y-0.5 duration-300"
+                    >
+                      {/* Custom WhatsApp Logo Path */}
+                      <svg className="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.528 1.977 14.062.953 11.453.953c-5.41 0-9.82 4.367-9.824 9.8.002 2.032.547 4.022 1.585 5.769l-.957 3.497 3.6-.942zm11.55-7.793c-.3-.149-1.774-.863-2.048-.962-.274-.099-.473-.149-.672.15-.199.299-.77.962-.944 1.159-.174.199-.349.224-.649.075-.3-.15-1.267-.461-2.413-1.472-.892-.787-1.493-1.759-1.668-2.056-.174-.299-.018-.461.13-.61.135-.133.3-.349.45-.523.15-.174.2-.299.3-.499.1-.199.05-.374-.025-.523-.075-.15-.672-1.597-.922-2.196-.244-.589-.493-.51-.672-.519-.174-.008-.373-.01-.573-.01-.199 0-.523.074-.797.373-.273.3-1.045 1.022-1.045 2.493 0 1.47 1.071 2.893 1.22 3.093.149.199 2.107 3.179 5.105 4.453.714.303 1.272.484 1.708.621.718.225 1.371.194 1.888.118.577-.085 1.774-.715 2.023-1.408.249-.693.249-1.288.174-1.408-.075-.12-.274-.199-.573-.348z" />
+                      </svg>
+                      Book these tests on WhatsApp →
+                    </a>
+
+                  </div>
+                )
+              )}
+            </div>
+
+          </div>
+
+        </div>
       </div>
     </section>
   );
