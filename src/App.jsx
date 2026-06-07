@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TrustStrip from './components/TrustStrip';
@@ -11,8 +12,22 @@ import ReportTracker from './components/ReportTracker';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
+import OurNetwork from './components/OurNetwork';
+import AgilusPage from './components/AgilusPage';
+import MetropolisPage from './components/MetropolisPage';
 
-function App() {
+// Helper to scroll to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+function Home() {
   useEffect(() => {
     // Intersection Observer for scroll fade-in-up animations on section headers and elements
     const observerOptions = {
@@ -49,20 +64,8 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-white text-[#0F172A] font-body selection:bg-[#00B4A6]/20 selection:text-[#0F172A]">
+    <>
       <Navbar />
-      {/* Proof banner fixed below the fixed top-0 navbar */}
-      <div className="fixed top-20 left-0 right-0 bg-[#0DCCB8] text-[#0A1628] font-body font-semibold text-[12px] tracking-[0.5px] text-center py-2.5 px-4 z-40">
-        Sample mockup for Forthlines Diagnostics — built by{' '}
-        <a 
-          href="https://gencore.co.in" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="underline hover:text-[#0A1628]/80 transition-all"
-        >
-          Pritam Chakroborty · gencore.co.in
-        </a>
-      </div>
       <Hero />
       <TrustStrip />
       <Services />
@@ -72,9 +75,37 @@ function App() {
       <Reviews />
       <ReportTracker />
       <Contact />
+      <OurNetwork />
       <Footer />
       <FloatingWhatsApp />
-    </div>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
+      <div className="bg-white text-[#0F172A] font-body selection:bg-[#00B4A6]/20 selection:text-[#0F172A]">
+        {/* Proof banner fixed below the fixed top-0 navbar */}
+        <div className="fixed top-20 left-0 right-0 bg-[#0DCCB8] text-[#0A1628] font-body font-semibold text-[12px] tracking-[0.5px] text-center py-2.5 px-4 z-40">
+          Forthlines Diagnostics Partner Network — Built by{' '}
+          <a 
+            href="https://gencore.co.in" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="underline hover:text-[#0A1628]/80 transition-all"
+          >
+            Pritam Chakroborty · gencore.co.in
+          </a>
+        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/agilus" element={<AgilusPage />} />
+          <Route path="/metropolis" element={<MetropolisPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
