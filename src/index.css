@@ -78,13 +78,24 @@ h1, h2, h3, h4 {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .fade-in-target.visible {
   opacity: 1;
   transform: translateY(0);
-  will-change: auto;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Disable hover lift on touch devices — prevents card jump on tap */
@@ -94,7 +105,26 @@ h1, h2, h3, h4 {
   }
 }
 
+/* Stabilize animating/hovering cards to prevent pixel residues on mobile devices */
+.package-card,
+article,
+.service-card,
+.contact-way,
+.step-card,
+.review-card {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
 /* Floating WhatsApp button ping keyframe */
+#float-wa {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
 #float-wa::before {
   content: '';
   position: absolute;
@@ -102,6 +132,9 @@ h1, h2, h3, h4 {
   border-radius: 9999px;
   border: 2px solid rgba(37, 211, 102, 0.3);
   animation: waPing 2s ease infinite;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
 }
 
 @keyframes waPing {
@@ -120,3 +153,4 @@ h1, h2, h3, h4 {
   background: rgba(0, 180, 166, 0.04);
   border: 1px solid rgba(0, 180, 166, 0.08);
 }
+
