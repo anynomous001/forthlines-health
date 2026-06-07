@@ -1,4 +1,3 @@
-import React from 'react';
 import { MessageSquare, Home, FileCheck } from 'lucide-react';
 
 const steps = [

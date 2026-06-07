@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
@@ -18,9 +18,10 @@ export default function Navbar() {
     setIsMenuOpen(false);
     const target = document.getElementById(id);
     if (target) {
-      const navbar = document.getElementById('navbar');
-      const navbarHeight = navbar ? navbar.offsetHeight : 70;
-      const targetTop = target.getBoundingClientRect().top + window.scrollY - navbarHeight - 16;
+      // Use fixed offset of 112 (navbar height 80px + proof banner height 32px)
+      // to prevent scrolling offset errors when the mobile menu is open.
+      const offset = 112;
+      const targetTop = target.getBoundingClientRect().top + window.scrollY - offset - 16;
       window.scrollTo({ top: targetTop, behavior: 'smooth' });
     }
   };
@@ -29,7 +30,9 @@ export default function Navbar() {
     <nav
       id="navbar"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
+        isMenuOpen
+          ? 'bg-white border-b border-slate-200 shadow-[0_2px_15px_rgba(0,0,0,0.03)]'
+          : isScrolled 
           ? 'bg-white/95 backdrop-blur-[16px] border-b border-slate-200/50 shadow-[0_2px_15px_rgba(0,0,0,0.03)]' 
           : 'bg-white/90 backdrop-blur-[12px] border-b border-transparent'
       }`}

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Phone, Clock, MapPin, ExternalLink } from 'lucide-react';
 
 export default function Contact() {
@@ -17,7 +16,7 @@ export default function Contact() {
               BOOK A CONSULTATION
             </span>
             <h2 id="contact-heading" className="font-display font-semibold text-3xl sm:text-[40px] text-[#0A1628] leading-[1.2] mb-6">
-              Book consultation in <br />
+              Book consultation in <br className="hidden sm:block" />
               60 seconds.
             </h2>
             <p className="font-body text-[14px] text-[#475569] leading-relaxed mb-8 max-w-sm">

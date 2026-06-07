@@ -1,4 +1,3 @@
-import React from 'react';
 import { Star, Clipboard, Activity, Clock, Calendar } from 'lucide-react';
 
 export default function Hero() {
@@ -6,9 +5,10 @@ export default function Hero() {
     e.preventDefault();
     const target = document.getElementById(id);
     if (target) {
-      const navbar = document.getElementById('navbar');
-      const navbarHeight = navbar ? navbar.offsetHeight : 70;
-      const targetTop = target.getBoundingClientRect().top + window.scrollY - navbarHeight - 16;
+      // Use fixed offset of 112 (navbar height 80px + proof banner height 32px)
+      // to prevent scrolling offset errors when the mobile menu is open.
+      const offset = 112;
+      const targetTop = target.getBoundingClientRect().top + window.scrollY - offset - 16;
       window.scrollTo({ top: targetTop, behavior: 'smooth' });
     }
   };
@@ -55,7 +55,7 @@ export default function Hero() {
  
             {/* Headline matching screenshot layout */}
             <h1 className="font-display font-semibold text-[#0A1628] tracking-tight leading-[1.2] mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-2xl">
-              Guwahati's most trusted <br />
+              Guwahati's most trusted <br className="hidden sm:block" />
               <span className="relative inline-block pb-1">
                 Ayurvedic clinic
                 {/* Custom Teal Underline */}
@@ -70,11 +70,11 @@ export default function Hero() {
             </p>
  
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 items-center mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center w-full sm:w-auto mb-8">
               <a 
                 href="#contact" 
                 onClick={(e) => handleScrollTo(e, 'contact')}
-                className="inline-flex items-center gap-2 bg-[#0A1628] text-white font-body font-semibold text-sm px-8 py-3.5 rounded-full hover:bg-slate-800 transition-all duration-300 shadow-[0_4px_12px_rgba(10,22,40,0.15)]"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-[#0A1628] text-white font-body font-semibold text-sm px-8 py-3.5 rounded-full hover:bg-slate-800 transition-all duration-300 shadow-[0_4px_12px_rgba(10,22,40,0.15)]"
               >
                 Book a Consultation
                 <span className="text-base font-normal ml-0.5">→</span>
@@ -82,7 +82,7 @@ export default function Hero() {
               <a 
                 href="#packages" 
                 onClick={(e) => handleScrollTo(e, 'packages')}
-                className="inline-flex items-center justify-center border border-slate-200 bg-white text-[#0A1628] font-body font-semibold text-sm px-8 py-3.5 rounded-full hover:bg-slate-50 transition-all duration-300"
+                className="inline-flex w-full sm:w-auto items-center justify-center border border-slate-200 bg-white text-[#0A1628] font-body font-semibold text-sm px-8 py-3.5 rounded-full hover:bg-slate-50 transition-all duration-300"
               >
                 View Wellness Packages
               </a>

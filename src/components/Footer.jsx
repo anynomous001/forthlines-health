@@ -1,4 +1,3 @@
-import React from 'react';
 import { MapPin } from 'lucide-react';
 
 export default function Footer() {
@@ -6,9 +5,10 @@ export default function Footer() {
     e.preventDefault();
     const target = document.getElementById(id);
     if (target) {
-      const navbar = document.getElementById('navbar');
-      const navbarHeight = navbar ? navbar.offsetHeight : 70;
-      const targetTop = target.getBoundingClientRect().top + window.scrollY - navbarHeight - 16;
+      // Use fixed offset of 112 (navbar height 80px + proof banner height 32px)
+      // to prevent scrolling offset errors when the mobile menu is open.
+      const offset = 112;
+      const targetTop = target.getBoundingClientRect().top + window.scrollY - offset - 16;
       window.scrollTo({ top: targetTop, behavior: 'smooth' });
     }
   };

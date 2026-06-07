@@ -1,4 +1,3 @@
-import React from 'react';
 import { Check, Percent } from 'lucide-react';
 
 const packageList = [
@@ -84,7 +83,7 @@ export default function Packages() {
               AYURVEDIC WELLNESS PACKAGES
             </span>
             <h2 id="packages-heading" className="font-display font-semibold text-3xl sm:text-[40px] text-[#0A1628] leading-[1.2]">
-              Wellness programs, <br />
+              Wellness programs, <br className="hidden sm:block" />
               transparent pricing.
             </h2>
           </div>

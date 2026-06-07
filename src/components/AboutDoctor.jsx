@@ -1,4 +1,3 @@
-import React from 'react';
 import { Award, BookOpen, HeartHandshake, MapPin } from 'lucide-react';
 
 export default function AboutDoctor() {
@@ -24,7 +23,7 @@ export default function AboutDoctor() {
             <div className="w-full max-w-[400px] bg-[#F8FAFC] border border-slate-200/80 p-4.5 rounded-3xl shadow-[0_12px_40px_rgba(15,23,42,0.03)] flex flex-col items-center">
               
               {/* Photo Frame */}
-              <div className="w-full h-[460px] overflow-hidden rounded-2xl relative border border-slate-200/50 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
+              <div className="w-full h-[320px] sm:h-[460px] overflow-hidden rounded-2xl relative border border-slate-200/50 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
                 <img 
                   src="/dr-biswas-clinic.png" 
                   alt="Dr Subhrajyoti Biswas in clinic at Pan Bazaar, Guwahati" 
@@ -51,7 +50,7 @@ export default function AboutDoctor() {
             </span>
             
             <h2 id="about-doctor-heading" className="font-display font-semibold text-3xl sm:text-[40px] text-[#0A1628] tracking-tight leading-[1.2] mb-6">
-              Empowering your health through <br />
+              Empowering your health through <br className="hidden sm:block" />
               <span className="text-[#00B4A6]">traditional Ayurvedic wisdom.</span>
             </h2>
 
@@ -130,12 +129,12 @@ export default function AboutDoctor() {
             </div>
 
             {/* CTA row */}
-            <div className="flex flex-wrap gap-4 items-center w-full border-t border-slate-100 pt-7">
+            <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center w-full border-t border-slate-100 pt-7">
               <a 
                 href="https://wa.me/918638707818?text=Hi%2C%20I%20want%20to%20book%20an%20Ayurvedic%20consultation%20with%20Dr%20Subhrajyoti%20Biswas"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#0A1628] hover:bg-slate-800 text-white font-body font-semibold text-sm px-8 py-3.5 rounded-full transition-all duration-300 shadow-[0_4px_12px_rgba(10,22,40,0.15)]"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-[#0A1628] hover:bg-slate-800 text-white font-body font-semibold text-sm px-8 py-3.5 rounded-full transition-all duration-300 shadow-[0_4px_12px_rgba(10,22,40,0.15)]"
               >
                 Discuss Your Imbalances
                 <span className="text-base font-normal ml-0.5">→</span>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TrustStrip from './components/TrustStrip';
@@ -53,16 +53,29 @@ function App() {
     <div className="bg-white text-[#0F172A] font-body selection:bg-[#00B4A6]/20 selection:text-[#0F172A]">
       <Navbar />
       {/* Proof banner fixed below the fixed top-0 navbar */}
-      <div className="fixed top-20 left-0 right-0 bg-[#0DCCB8] text-[#0A1628] font-body font-semibold text-[12px] tracking-[0.5px] text-center py-2.5 px-4 z-40">
-        Sample mockup for Dr Subhrajyoti Biswas Ayurveda — built by{' '}
-        <a 
-          href="https://gencore.co.in" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="underline hover:text-[#0A1628]/80 transition-all"
-        >
-          Pritam Chakroborty · gencore.co.in
-        </a>
+      <div className="fixed top-20 left-0 right-0 bg-[#0DCCB8] text-[#0A1628] font-body font-semibold text-[11px] sm:text-[12px] tracking-[0.5px] text-center py-2 px-4 z-40">
+        <span className="sm:hidden">
+          Mockup: Dr S. Biswas Ayurveda — by{' '}
+          <a 
+            href="https://gencore.co.in" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="underline hover:text-[#0A1628]/80 transition-all"
+          >
+            Pritam C.
+          </a>
+        </span>
+        <span className="hidden sm:inline">
+          Sample mockup for Dr Subhrajyoti Biswas Ayurveda — built by{' '}
+          <a 
+            href="https://gencore.co.in" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="underline hover:text-[#0A1628]/80 transition-all"
+          >
+            Pritam Chakroborty · gencore.co.in
+          </a>
+        </span>
       </div>
       <Hero />
       <TrustStrip />

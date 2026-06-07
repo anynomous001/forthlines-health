@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { 
   Search, 
   Info,
   Check,
-  FlaskConical,
   Activity,
   FileCheck
 } from 'lucide-react';
@@ -55,7 +54,7 @@ export default function ReportTracker() {
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Container Box */}
-        <div className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-[0_15px_50px_rgba(15,23,42,0.03)] relative overflow-hidden">
+        <div className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-12 shadow-[0_15px_50px_rgba(15,23,42,0.03)] relative overflow-hidden">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
@@ -95,7 +94,7 @@ export default function ReportTracker() {
                 />
                 <button
                   onClick={handleTrack}
-                  className="bg-[#0A1628] hover:bg-slate-800 text-white font-body font-semibold text-[12px] px-6 py-2.5 rounded-full transition-colors flex-shrink-0 shadow-sm"
+                  className="bg-[#0A1628] hover:bg-slate-800 text-white font-body font-semibold text-[12px] px-4 sm:px-6 py-2.5 rounded-full transition-colors flex-shrink-0 shadow-sm"
                 >
                   Track
                 </button>

@@ -1,4 +1,3 @@
-import React from 'react';
 import { ShieldCheck, Calendar, Zap, Home } from 'lucide-react';
 
 export default function TrustStrip() {

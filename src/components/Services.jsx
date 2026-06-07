@@ -1,4 +1,3 @@
-import React from 'react';
 import { 
   Droplet, 
   Microscope, 
@@ -87,7 +86,7 @@ export default function Services() {
               OUR SERVICES
             </span>
             <h2 id="services-heading" className="font-display font-semibold text-3xl sm:text-[40px] text-[#0A1628] leading-[1.2]">
-              Comprehensive Ayurvedic therapies, <br />
+              Comprehensive Ayurvedic therapies, <br className="hidden sm:block" />
               tailored for your health.
             </h2>
           </div>
