@@ -4,7 +4,7 @@ export default function FloatingWhatsApp() {
   return (
     <a 
       id="float-wa"
-      href="https://wa.me/918777578862?text=Hi%2C%20I%20want%20to%20book%20a%20test%20at%20Forthlines%20Diagnostics"
+      href="https://wa.me/918638707818?text=Hi%2C%20I%20want%20to%20book%20an%20Ayurvedic%20consultation%20with%20Dr%20Subhrajyoti%20Biswas"
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-[#25D366] text-white px-5 py-3 rounded-full shadow-[0_8px_24px_rgba(37,211,102,0.3)] hover:bg-[#20ba5a] hover:scale-[1.03] transition-all duration-300 font-body font-semibold text-[13.5px] decoration-none"

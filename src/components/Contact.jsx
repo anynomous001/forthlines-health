@@ -14,14 +14,14 @@ export default function Contact() {
           {/* Left Column (45% width) */}
           <div className="lg:col-span-5 flex flex-col items-start text-left select-none">
             <span className="text-[10px] uppercase tracking-[3px] font-bold text-[#00B4A6] mb-3 block">
-              BOOK A TEST
+              BOOK A CONSULTATION
             </span>
             <h2 id="contact-heading" className="font-display font-semibold text-3xl sm:text-[40px] text-[#0A1628] leading-[1.2] mb-6">
-              Book your test in <br />
+              Book consultation in <br />
               60 seconds.
             </h2>
             <p className="font-body text-[14px] text-[#475569] leading-relaxed mb-8 max-w-sm">
-              Skip forms and queues. WhatsApp us the test name — we'll confirm, collect your sample, and deliver the report.
+              Skip forms and queues. WhatsApp us your preferred slot — we'll confirm, arrange your consultation at our clinic, and guide your treatment.
             </p>
 
             {/* List of Contact Cards */}
@@ -29,7 +29,7 @@ export default function Contact() {
               
               {/* WhatsApp Row */}
               <a 
-                href="https://wa.me/918777578862?text=Hi%2C%20I%20want%20to%20book%20a%2520test%20at%20Forthlines%20Diagnostics"
+                href="https://wa.me/918638707818?text=Hi%2C%20I%20want%20to%20book%20an%20Ayurvedic%20consultation%20with%20Dr%20Subhrajyoti%20Biswas"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full flex items-center gap-4 bg-[#00B4A6] hover:bg-[#00a396] text-white p-4.5 rounded-2xl shadow-[0_4px_14px_rgba(0,180,166,0.15)] transition-all hover:-translate-y-0.5 duration-300"
@@ -44,7 +44,7 @@ export default function Contact() {
                     WHATSAPP
                   </div>
                   <div className="font-body text-[13.5px] font-semibold text-white">
-                    +91 87775 78862 — Chat with us
+                    +91 86387 07818 — Chat with us
                   </div>
                 </div>
               </a>
@@ -54,7 +54,7 @@ export default function Contact() {
                 
                 {/* Phone Card */}
                 <a 
-                  href="tel:+918777578862"
+                  href="tel:+918638707818"
                   className="bg-white border border-slate-200/80 p-4.5 rounded-2xl flex items-center gap-3.5 shadow-[0_2px_8px_rgba(15,23,42,0.015)] hover:border-[#00B4A6]/30 transition-all duration-200"
                 >
                   <div className="w-9 h-9 bg-[#00B4A6]/10 text-[#00B4A6] rounded-xl flex items-center justify-center flex-shrink-0">
@@ -65,7 +65,7 @@ export default function Contact() {
                       PHONE
                     </div>
                     <div className="font-body text-[12.5px] font-semibold text-[#0A1628] mt-0.5">
-                      +91 87775 78862
+                      +91 86387 07818
                     </div>
                   </div>
                 </a>
@@ -80,8 +80,8 @@ export default function Contact() {
                       OPEN HOURS
                     </div>
                     <div className="font-body text-[11px] font-medium text-[#475569] mt-0.5 leading-tight">
-                      Mon–Sat: 8AM–9PM <br />
-                      Sunday: 8AM–2PM
+                      Mon–Sat: 10AM–8PM <br />
+                      Sunday: Closed
                     </div>
                   </div>
                 </div>
@@ -98,7 +98,7 @@ export default function Contact() {
                     ADDRESS
                   </div>
                   <div className="font-body text-[12.5px] font-semibold text-[#0A1628] mt-0.5">
-                    Block J, Baishnabghata Patuli Township, Kolkata 700094
+                    Motilal Nehru Rd, Pan Bazaar, Guwahati, Assam 781001
                   </div>
                 </div>
               </div>
@@ -133,15 +133,15 @@ export default function Contact() {
               <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-[0_4px_25px_rgba(15,23,42,0.03)] flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between text-left">
                 <div>
                   <h4 className="font-display font-semibold text-[#0A1628] text-[13.5px] leading-tight mb-0.5">
-                    Forthlines Diagnostics
+                    Dr Subhrajyoti Biswas (Ayurvedacharya)
                   </h4>
                   <p className="font-body text-[10.5px] text-[#475569]">
-                    Patuli, Kolkata 700094
+                    Pan Bazaar, Guwahati 781001
                   </p>
                 </div>
                 
                 <a 
-                  href="https://maps.google.com/?q=Baishnabghata+Patuli+Township+Kolkata+700094"
+                  href="https://maps.google.com/?q=Motilal+Nehru+Rd+Pan+Bazaar+Guwahati+Assam+781001"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-[11px] font-body font-semibold text-[#00B4A6] hover:text-[#00a396] transition-colors flex-shrink-0"

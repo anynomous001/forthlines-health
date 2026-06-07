@@ -6,47 +6,48 @@ import {
   TrendingUp, 
   Bone, 
   Droplet,
-  CheckCircle2
+  CheckCircle2,
+  FlaskConical
 } from 'lucide-react';
 
 const symptomData = {
   'fatigue': {
-    title: 'Fatigue',
-    tests: ['CBC', 'Thyroid Profile', 'Vitamin B12', 'Iron Studies', 'Vitamin D', 'Blood Sugar']
+    title: 'Chronic Fatigue & Weakness',
+    tests: ['Personalized Consultation', 'Rasayana Rejuvenation', 'Panchakarma Detox', 'Herbal Tonics']
   },
   'chest-pain': {
-    title: 'Chest Pain',
-    tests: ['ECG', 'Lipid Profile', 'CRP', 'Troponin I', 'CBC']
+    title: 'Digestive Issues / IBS',
+    tests: ['Deepa-Pachana (Herbal Decoctions)', 'Prakriti Analysis', 'Dietary Counseling', 'Abhyanga Massage']
   },
   'fever': {
-    title: 'Fever',
-    tests: ['CBC', 'Malaria Antigen', 'Dengue NS1', 'Urine Routine']
+    title: 'Stress & Anxiety',
+    tests: ['Shirodhara Therapy', 'Nasyam Treatment', 'Ashwagandha Formulas', 'Yogic Breathing Guidance']
   },
   'weight-gain': {
-    title: 'Unexplained Weight Gain',
-    tests: ['Thyroid Profile', 'Fasting Insulin', 'HbA1c', 'Lipid Profile', 'Cortisol', 'CBC']
+    title: 'Weight Management',
+    tests: ['Udvartana (Herbal Scrub)', 'Panchakarma Detox', 'Metabolic Herbs', 'Dietary Plan']
   },
   'joint-pain': {
-    title: 'Joint Pain',
-    tests: ['Uric Acid', 'Rheumatoid Factor', 'Anti-CCP', 'ESR', 'CRP', 'Vitamin D']
+    title: 'Joint & Arthritis Pain',
+    tests: ['Janu/Kati Basti', 'Snehan-Swedan (Oiling & Steam)', 'Anti-inflammatory Herbs', 'Ayurvedic Massage']
   },
   'frequent-urination': {
-    title: 'Frequent Urination',
-    tests: ['Urine Routine', 'Urine Culture', 'Blood Sugar Fasting & PP', 'HbA1c', 'KFT']
+    title: 'Skin Issues (Eczema, Psoriasis)',
+    tests: ['Raktashodhana (Blood Purifier)', 'Panchakarma Detox', 'Herbal Lepas (Ointments)', 'Dietary Changes']
   }
 };
 
 const symptoms = [
   { id: 'fatigue', label: 'Fatigue', icon: BatteryLow },
-  { id: 'chest-pain', label: 'Chest Pain', icon: Heart },
-  { id: 'fever', label: 'Fever', icon: Thermometer },
+  { id: 'chest-pain', label: 'Indigestion', icon: FlaskConical },
+  { id: 'fever', label: 'Stress & Anxiety', icon: Heart },
   { id: 'weight-gain', label: 'Weight Gain', icon: TrendingUp },
   { id: 'joint-pain', label: 'Joint Pain', icon: Bone },
-  { id: 'frequent-urination', label: 'Frequent Urination', icon: Droplet }
+  { id: 'frequent-urination', label: 'Skin Conditions', icon: Droplet }
 ];
 
 export default function SymptomFinder() {
-  const [activeSymptom, setActiveSymptom] = useState('fever'); // Default to fever to showcase the layout in screenshot
+  const [activeSymptom, setActiveSymptom] = useState('fever'); // Default to fever (Stress & Anxiety) to showcase the layout
 
   const handleSymptomClick = (symptomId) => {
     setActiveSymptom(activeSymptom === symptomId ? null : symptomId);
@@ -58,8 +59,8 @@ export default function SymptomFinder() {
 
   const testListStr = selectedData ? selectedData.tests.join(', ') : '';
   const waUrl = selectedData 
-    ? `https://wa.me/918777578862?text=Hi%2C%20I%20need%20to%20book%20the%20following%20tests%20for%20${activeSymptom}%3A%20${encodeURIComponent(testListStr)}`
-    : 'https://wa.me/918777578862';
+    ? `https://wa.me/918638707818?text=Hi%2C%20I%20need%20to%20consult%20Dr%20Subhrajyoti%20Biswas%20about%20${encodeURIComponent(selectedData.title)}%20and%20discuss%20therapies%3A%20${encodeURIComponent(testListStr)}`
+    : 'https://wa.me/918638707818';
 
   return (
     <section 
@@ -73,15 +74,15 @@ export default function SymptomFinder() {
           {/* Left Column (40% width) */}
           <div className="lg:col-span-5 flex flex-col items-start text-left">
             <span className="inline-block text-[10px] uppercase tracking-[1.5px] font-bold text-[#00B4A6] border border-[#00B4A6]/20 bg-[#00B4A6]/5 px-3.5 py-1.5 rounded-full mb-6 select-none">
-              SMART TEST FINDER
+              SMART SYMPTOM GUIDE
             </span>
             
             <h2 id="finder-heading" className="font-display font-semibold text-3xl sm:text-4xl text-[#0A1628] tracking-tight leading-none mb-6">
-              Not sure which test you need?
+              Not sure which treatment you need?
             </h2>
             
             <p className="font-body text-[14.5px] text-[#475569] leading-relaxed mb-8 max-w-md">
-              Tap a symptom and we'll suggest the most relevant diagnostic tests. Then book them directly on WhatsApp — no calls, no forms.
+              Tap a symptom and we'll suggest the most relevant Ayurvedic treatments and consultations. Book your consultation on WhatsApp in a single click.
             </p>
 
             {/* Disclaimer Card */}
@@ -90,7 +91,7 @@ export default function SymptomFinder() {
                 DISCLAIMER
               </div>
               <p className="font-body text-[12.5px] text-[#475569] leading-relaxed">
-                Suggestions are indicative and based on common clinical patterns. Please consult your physician before booking. Forthlines technicians are happy to help over WhatsApp.
+                Suggestions are indicative and based on common Ayurvedic protocols. Please consult Dr Subhrajyoti Biswas (Ayurvedacharya) for a complete Nadi Pariksha and personalized prescription.
               </p>
             </div>
           </div>
@@ -125,7 +126,7 @@ export default function SymptomFinder() {
             <div className="min-h-[260px] relative">
               {!activeSymptom ? (
                 <div className="flex flex-col items-center justify-center py-16 text-center text-slate-300 border border-dashed border-slate-200 rounded-3xl bg-[#F8FAFC]/50">
-                  <p className="font-body text-[14px] text-slate-400">Select a symptom above to find recommended tests</p>
+                  <p className="font-body text-[14px] text-slate-400">Select a symptom above to find recommended treatments</p>
                 </div>
               ) : (
                 selectedData && (
@@ -138,7 +139,7 @@ export default function SymptomFinder() {
                     <div className="flex items-center justify-between gap-4 mb-6">
                       <div>
                         <div className="text-[10px] tracking-[1.5px] font-bold text-slate-400 uppercase mb-1">
-                          RECOMMENDED TESTS FOR
+                          RECOMMENDED THERAPIES FOR
                         </div>
                         <h3 className="font-display font-semibold text-2xl text-[#0A1628]">
                           {selectedData.title}
@@ -179,7 +180,7 @@ export default function SymptomFinder() {
                       <svg className="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
                         <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.528 1.977 14.062.953 11.453.953c-5.41 0-9.82 4.367-9.824 9.8.002 2.032.547 4.022 1.585 5.769l-.957 3.497 3.6-.942zm11.55-7.793c-.3-.149-1.774-.863-2.048-.962-.274-.099-.473-.149-.672.15-.199.299-.77.962-.944 1.159-.174.199-.349.224-.649.075-.3-.15-1.267-.461-2.413-1.472-.892-.787-1.493-1.759-1.668-2.056-.174-.299-.018-.461.13-.61.135-.133.3-.349.45-.523.15-.174.2-.299.3-.499.1-.199.05-.374-.025-.523-.075-.15-.672-1.597-.922-2.196-.244-.589-.493-.51-.672-.519-.174-.008-.373-.01-.573-.01-.199 0-.523.074-.797.373-.273.3-1.045 1.022-1.045 2.493 0 1.47 1.071 2.893 1.22 3.093.149.199 2.107 3.179 5.105 4.453.714.303 1.272.484 1.708.621.718.225 1.371.194 1.888.118.577-.085 1.774-.715 2.023-1.408.249-.693.249-1.288.174-1.408-.075-.12-.274-.199-.573-.348z" />
                       </svg>
-                      Book these tests on WhatsApp →
+                      Discuss treatment on WhatsApp →
                     </a>
 
                   </div>

@@ -48,29 +48,29 @@ export default function Footer() {
               href="#home"
               onClick={(e) => handleScrollTo(e, 'home')}
               className="flex items-baseline gap-2 mb-6"
-              aria-label="Forthlines Diagnostics Home"
+              aria-label="Dr Subhrajyoti Biswas Ayurveda Home"
             >
-              <span className="font-display font-bold text-2xl text-white tracking-tight">
-                Forthlines
+              <span className="font-display font-bold text-lg sm:text-xl md:text-2xl text-white tracking-tight">
+                Dr Subhrajyoti Biswas
               </span>
               <span className="font-body text-sm font-semibold tracking-wide text-[#00B4A6]">
-                Diagnostics
+                Ayurveda
               </span>
             </a>
 
             {/* Accurate Diagnostics Header */}
             <h3 className="font-display font-semibold text-2xl text-white mb-4 leading-snug max-w-sm">
-              Accurate diagnostics, close to home.
+              Authentic Ayurvedic care, close to home.
             </h3>
 
             {/* Description */}
             <p className="font-body text-[13px] text-slate-400 leading-relaxed mb-6 max-w-md">
-              A neighbourhood diagnostic centre in Patuli, trusted by patients across South Kolkata for accurate reports and warm service.
+              Providing traditional, natural, and holistic healthcare services. Trusted by patients across Assam for deep-rooted knowledge and high customer satisfaction.
             </p>
 
             {/* Chat on WhatsApp Button */}
             <a 
-              href="https://wa.me/918777578862?text=Hi%2C%20I%20want%20to%20book%20a%2520test%20at%20Forthlines%20Diagnostics"
+              href="https://wa.me/918638707818?text=Hi%2C%20I%20want%20to%20book%20an%20Ayurvedic%20consultation%20with%20Dr%20Subhrajyoti%20Biswas"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#00B4A6] hover:bg-[#00a396] text-white font-body font-semibold text-[13px] px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 shadow-[0_4px_14px_rgba(0,180,166,0.2)]"
@@ -103,7 +103,7 @@ export default function Footer() {
                   onClick={(e) => handleScrollTo(e, 'packages')}
                   className="hover:text-[#00B4A6] transition-colors"
                 >
-                  Packages
+                  Wellness Packages
                 </a>
               </li>
               <li>
@@ -133,11 +133,11 @@ export default function Footer() {
             </span>
             <div className="flex items-start gap-2.5 text-slate-300 font-body text-[13px] leading-relaxed">
               <MapPin size={16} className="text-[#00B4A6] flex-shrink-0 mt-0.5" />
-              <address className="not-italic text-left">
-                Block J,<br />
-                Baishnabghata<br />
-                Patuli Township,<br />
-                Kolkata 700094
+              <address className="not-italic text-left font-body text-[13px] text-slate-300">
+                Motilal Nehru Rd,<br />
+                Pan Bazaar,<br />
+                Guwahati,<br />
+                Assam 781001
               </address>
             </div>
           </div>
@@ -162,7 +162,7 @@ export default function Footer() {
                 gencore.co.in
               </a>
               <p className="font-body text-[11px] text-slate-400 mt-2.5 leading-relaxed">
-                Crafted with care for local healthcare brands across Kolkata.
+                Crafted with care for local healthcare brands across Assam.
               </p>
             </div>
           </div>
@@ -172,10 +172,10 @@ export default function Footer() {
         {/* Footer Bottom Row */}
         <div className="border-t border-white/10 mt-16 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-body text-[12px] text-slate-400/80">
-            © 2026 Forthlines Diagnostics · Patuli, Kolkata
+            © 2026 Dr Subhrajyoti Biswas (Ayurvedacharya) · Pan Bazaar, Guwahati
           </p>
           <p className="font-body text-[12px] text-slate-400/80">
-            All reports verified by certified pathologists.
+            All treatments guided by certified Ayurvedacharya.
           </p>
         </div>
       </div>

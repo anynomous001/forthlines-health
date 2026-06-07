@@ -42,13 +42,13 @@ export default function Navbar() {
           href="#home"
           className="flex items-baseline gap-2 select-none flex-shrink-0"
           onClick={(e) => handleScrollTo(e, 'home')}
-          aria-label="Forthlines Diagnostics Home"
+          aria-label="Dr Subhrajyoti Biswas Ayurveda Home"
         >
-          <span className="font-display font-bold text-xl sm:text-2xl text-[#0A1628] tracking-tight">
-            Forthlines
+          <span className="font-display font-bold text-base sm:text-lg md:text-xl lg:text-2xl text-[#0A1628] tracking-tight">
+            Dr Subhrajyoti Biswas
           </span>
           <span className="font-body text-xs sm:text-sm font-semibold tracking-wide text-[#00B4A6]">
-            Diagnostics
+            Ayurveda
           </span>
         </a>
 
@@ -79,7 +79,7 @@ export default function Navbar() {
                 onClick={(e) => handleScrollTo(e, 'packages')}
                 className="hover:text-[#00B4A6] transition-colors"
               >
-                Health Packages
+                Wellness Packages
               </a>
             </li>
             <li>
@@ -88,7 +88,7 @@ export default function Navbar() {
                 onClick={(e) => handleScrollTo(e, 'test-finder')}
                 className="hover:text-[#00B4A6] transition-colors"
               >
-                Book a Test
+                Book Consultation
               </a>
             </li>
             <li>
@@ -106,7 +106,7 @@ export default function Navbar() {
         {/* WhatsApp Button (Teal background as in image) */}
         <div className="hidden lg:block">
           <a
-            href="https://wa.me/918777578862?text=Hi%2C%20I%20want%20to%20book%20a%20test%20at%20Forthlines%20Diagnostics"
+            href="https://wa.me/918638707818?text=Hi%2C%20I%20want%20to%20book%20an%20Ayurvedic%20consultation%20with%20Dr%20Subhrajyoti%20Biswas"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#00B4A6] text-white font-body font-semibold text-[13px] px-6 py-2.5 rounded-full hover:bg-[#00a396] transition-all hover:-translate-y-0.5 shadow-[0_4px_14px_rgba(0,180,166,0.2)]"
@@ -137,11 +137,11 @@ export default function Navbar() {
         <div className="flex flex-col px-8 gap-4">
           <a href="#home" className="font-body font-medium text-base text-[#475569] hover:text-[#00B4A6] py-2 border-b border-black/5" onClick={(e) => handleScrollTo(e, 'home')}>Home</a>
           <a href="#services" className="font-body font-medium text-base text-[#475569] hover:text-[#00B4A6] py-2 border-b border-black/5" onClick={(e) => handleScrollTo(e, 'services')}>Services</a>
-          <a href="#packages" className="font-body font-medium text-base text-[#475569] hover:text-[#00B4A6] py-2 border-b border-black/5" onClick={(e) => handleScrollTo(e, 'packages')}>Health Packages</a>
-          <a href="#test-finder" className="font-body font-medium text-base text-[#475569] hover:text-[#00B4A6] py-2 border-b border-black/5" onClick={(e) => handleScrollTo(e, 'test-finder')}>Book a Test</a>
+          <a href="#packages" className="font-body font-medium text-base text-[#475569] hover:text-[#00B4A6] py-2 border-b border-black/5" onClick={(e) => handleScrollTo(e, 'packages')}>Wellness Packages</a>
+          <a href="#test-finder" className="font-body font-medium text-base text-[#475569] hover:text-[#00B4A6] py-2 border-b border-black/5" onClick={(e) => handleScrollTo(e, 'test-finder')}>Book Consultation</a>
           <a href="#contact" className="font-body font-medium text-base text-[#475569] hover:text-[#00B4A6] py-2 border-b border-black/5" onClick={(e) => handleScrollTo(e, 'contact')}>Contact</a>
           <a
-            href="https://wa.me/918777578862?text=Hi%2C%20I%20want%20to%20book%20a%20test%20at%20Forthlines%20Diagnostics"
+            href="https://wa.me/918638707818?text=Hi%2C%20I%20want%20to%20book%20an%20Ayurvedic%20consultation%20with%20Dr%20Subhrajyoti%20Biswas"
             className="inline-flex items-center justify-center gap-2 bg-[#00B4A6] text-white font-body font-bold text-sm py-3 rounded-full mt-2 hover:bg-[#00a396] transition-colors"
             onClick={() => setIsMenuOpen(false)}
           >

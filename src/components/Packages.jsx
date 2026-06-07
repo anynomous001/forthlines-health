@@ -3,69 +3,68 @@ import { Check, Percent } from 'lucide-react';
 
 const packageList = [
   {
-    name: 'Basic Wellness',
+    name: 'Starter Consultation',
     label: 'STARTER',
-    priceCrossed: '₹1,299',
-    priceActual: '₹799',
+    priceCrossed: '₹1,000',
+    priceActual: '₹500',
     saveText: 'You save ₹500',
     popular: false,
     tests: [
-      'CBC',
-      'Blood Sugar (Fasting)',
-      'Thyroid (TSH)',
-      'Urine Routine'
+      'Pulse Diagnosis (Nadi Pariksha)',
+      'Dietary Advisory',
+      'Prakriti Analysis',
+      'Lifestyle Consultation'
     ],
-    waMessage: 'Hi, I want to book the Basic Wellness Package (₹799) at Forthlines Diagnostics.'
+    waMessage: 'Hi, I want to book the Starter Ayurvedic Consultation (₹500) at Dr Subhrajyoti Biswas Ayurveda.'
   },
   {
-    name: 'Full Body Checkup',
+    name: 'Panchakarma Detox',
     label: 'COMPREHENSIVE',
-    priceCrossed: '₹2,599',
-    priceActual: '₹1,499',
-    saveText: 'You save ₹1,100',
+    priceCrossed: '₹5,999',
+    priceActual: '₹3,499',
+    saveText: 'You save ₹2,500',
     popular: true,
     tests: [
-      'CBC',
-      'LFT',
-      'KFT',
-      'Lipid Profile',
-      'Thyroid Profile',
-      'Blood Sugar',
-      'Urine Routine'
+      'Full Consultation included',
+      '5 Sessions of Abhyanga & Swedana',
+      'Custom Herbal Decoctions',
+      'Toxin Cleansing (Panchakarma)',
+      'Stress Relief (Shirodhara)',
+      'Follow-up Consultation'
     ],
-    waMessage: 'Hi, I want to book the Full Body Checkup Package (₹1,499) at Forthlines Diagnostics.'
+    waMessage: 'Hi, I want to book the Panchakarma Detox Package (₹3,499) at Dr Subhrajyoti Biswas Ayurveda.'
   },
   {
-    name: 'Diabetes Care',
-    label: 'FOCUSED',
-    priceCrossed: '₹1,699',
-    priceActual: '₹999',
-    saveText: 'You save ₹700',
+    name: 'Joint & Spine Care',
+    label: 'SPECIALIZED CARE',
+    priceCrossed: '₹3,499',
+    priceActual: '₹2,199',
+    saveText: 'You save ₹1,300',
     popular: false,
     tests: [
-      'HbA1c',
-      'Fasting Glucose',
-      'Post-meal Glucose',
-      'Insulin',
-      'Urine Microalbumin'
+      'Pulse Diagnosis (Nadi Pariksha)',
+      '3 Sessions of Janu/Kati Basti',
+      'Pain Relief Herbal Oils',
+      'Localized Steam Treatment',
+      'Posture & Yoga Advisory'
     ],
-    waMessage: 'Hi, I want to book the Diabetes Care Package (₹999) at Forthlines Diagnostics.'
+    waMessage: 'Hi, I want to book the Joint & Spine Care Package (₹2,199) at Dr Subhrajyoti Biswas Ayurveda.'
   },
   {
-    name: 'Cardiac Screen',
-    label: 'HEART HEALTH',
-    priceCrossed: '₹2,199',
-    priceActual: '₹1,299',
-    saveText: 'You save ₹900',
+    name: 'Stress & Sleep Relief',
+    label: 'MIND & SOUL',
+    priceCrossed: '₹2,999',
+    priceActual: '₹1,899',
+    saveText: 'You save ₹1,100',
     popular: false,
     tests: [
-      'Lipid Profile',
-      'ECG',
-      'CRP',
-      'Homocysteine',
-      'CBC'
+      'Prakriti Analysis',
+      '2 Sessions of Shirodhara',
+      'Soothing Ayurvedic Massage',
+      'Herbal Brain Tonics',
+      'Meditation Guidance'
     ],
-    waMessage: 'Hi, I want to book the Cardiac Screen Package (₹1,299) at Forthlines Diagnostics.'
+    waMessage: 'Hi, I want to book the Stress & Sleep Relief Package (₹1,899) at Dr Subhrajyoti Biswas Ayurveda.'
   }
 ];
 
@@ -82,16 +81,16 @@ export default function Packages() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12 lg:mb-16 text-left">
           <div className="lg:col-span-7">
             <span className="text-[10px] uppercase tracking-[3px] font-bold text-[#00B4A6] mb-3 block">
-              PREVENTIVE HEALTH PACKAGES
+              AYURVEDIC WELLNESS PACKAGES
             </span>
             <h2 id="packages-heading" className="font-display font-semibold text-3xl sm:text-[40px] text-[#0A1628] leading-[1.2]">
-              Smart packages, <br />
+              Wellness programs, <br />
               transparent pricing.
             </h2>
           </div>
           <div className="lg:col-span-5 lg:pl-4">
             <p className="font-body text-[14.5px] text-[#475569] leading-relaxed">
-              Hand-picked test bundles at bundled prices. Every package includes free home sample collection within Patuli and nearby areas.
+              Hand-picked treatment bundles at bundled prices. Every package includes direct consultation with Dr Subhrajyoti Biswas at our Pan Bazaar clinic.
             </p>
           </div>
         </div>
@@ -156,7 +155,7 @@ export default function Packages() {
 
               {/* Booking CTA Button */}
               <a 
-                href={`https://wa.me/918777578862?text=${encodeURIComponent(pkg.waMessage)}`}
+                href={`https://wa.me/918638707818?text=${encodeURIComponent(pkg.waMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`w-full py-3 rounded-full text-[13px] font-body font-semibold flex items-center justify-center gap-1 transition-all duration-300 border ${

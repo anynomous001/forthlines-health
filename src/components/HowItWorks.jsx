@@ -5,20 +5,20 @@ const steps = [
   {
     number: '01',
     icon: MessageSquare,
-    title: 'WhatsApp us the test name',
-    desc: "Send us the test or package you'd like to book. We confirm in minutes."
+    title: 'WhatsApp your concern',
+    desc: "Send us your symptoms or the treatment you're interested in. We confirm your slot in minutes."
   },
   {
     number: '02',
     icon: Home,
-    title: 'We collect at home or you visit us',
-    desc: 'Choose doorstep collection or walk into our Patuli centre — your call.'
+    title: 'Visit our Pan Bazaar clinic',
+    desc: 'Walk into our clinic on Motilal Nehru Rd — Dr Biswas will do a thorough Nadi Pariksha diagnosis.'
   },
   {
     number: '03',
     icon: FileCheck,
-    title: 'Get report on WhatsApp same day',
-    desc: 'Most reports delivered the same day. Soft copy + printed copy available.'
+    title: 'Receive your treatment plan',
+    desc: 'Get a personalized Ayurvedic treatment plan, herbal prescription, and follow-up guidance.'
   }
 ];
 

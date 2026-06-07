@@ -64,17 +64,17 @@ export default function ReportTracker() {
               
               {/* Badge */}
               <span className="inline-block text-[9px] uppercase tracking-[1.5px] font-bold text-white bg-[#0A1628] px-4 py-1.5 rounded-full mb-6">
-                TRACK YOUR REPORT STATUS
+                TRACK YOUR CONSULTATION STATUS
               </span>
 
               {/* Title */}
               <h2 id="tracker-heading" className="font-display font-semibold text-3xl sm:text-[40px] text-[#0A1628] tracking-tight leading-none mb-6">
-                Where's my report?
+                Where is my treatment plan?
               </h2>
 
               {/* Description */}
               <p className="font-body text-[14px] text-[#475569] leading-relaxed mb-8 max-w-sm">
-                Enter the mobile number you booked with to see your live status. Reports are also pushed to WhatsApp automatically.
+                Enter the mobile number you booked with to see your live consultation status and treatment schedule.
               </p>
 
               {/* Form Input Row (Rounded-full as in screenshot) */}
@@ -115,11 +115,11 @@ export default function ReportTracker() {
                 {/* Stepper Header */}
                 <div className="mb-8 border-b border-slate-100 pb-4">
                   <div className="text-[10px] font-bold uppercase tracking-[1.5px] text-slate-400 mb-1">
-                    BOOKING
+                    CONSULTATION
                   </div>
                   <h3 className="font-display font-semibold text-[19px] text-[#0A1628] leading-tight">
                     {currentStep >= 0 
-                      ? `Ref #FD-2026-${refCode}` 
+                      ? `Ref #AB-2026-${refCode}` 
                       : 'Awaiting input'
                     }
                   </h3>
@@ -131,18 +131,18 @@ export default function ReportTracker() {
                   {/* Vertical connector line */}
                   <div className="absolute top-[18px] bottom-[18px] left-[17px] w-[1px] bg-slate-200 z-0"></div>
 
-                  {/* Step 1: Sample Collected */}
+                  {/* Step 1: Booking Confirmed */}
                   <div className="flex items-start gap-4 relative z-10">
                     <div className={`w-9 h-9 rounded-full flex items-center justify-center border-2 transition-all duration-300 ${
                       currentStep >= 0 
                         ? 'bg-[#00B4A6] border-[#00B4A6] text-white shadow-sm' 
                         : 'bg-white border-slate-200 text-slate-300'
                     }`}>
-                      {currentStep >= 0 ? <Check size={14} strokeWidth={3} /> : <FlaskConical size={14} />}
+                      {currentStep >= 0 ? <Check size={14} strokeWidth={3} /> : <Info size={14} />}
                     </div>
                     <div>
                       <div className={`font-body font-bold text-[13px] leading-tight ${currentStep >= 0 ? 'text-[#0A1628]' : 'text-slate-400'}`}>
-                        Sample Collected
+                        Booking Confirmed
                       </div>
                       <div className="font-body text-[11px] text-[#475569] mt-0.5">
                         {currentStep >= 0 ? 'Completed' : 'Pending'}
@@ -150,7 +150,7 @@ export default function ReportTracker() {
                     </div>
                   </div>
 
-                  {/* Step 2: Processing */}
+                  {/* Step 2: Nadi Pariksha */}
                   <div className="flex items-start gap-4 relative z-10">
                     <div className={`w-9 h-9 rounded-full flex items-center justify-center border-2 transition-all duration-300 ${
                       currentStep > 1 
@@ -163,7 +163,7 @@ export default function ReportTracker() {
                     </div>
                     <div>
                       <div className={`font-body font-bold text-[13px] leading-tight ${currentStep >= 1 ? 'text-[#0A1628]' : 'text-slate-400'}`}>
-                        Processing
+                        Nadi Pariksha / Pulse Analysis
                       </div>
                       <div className="font-body text-[11px] text-[#475569] mt-0.5">
                         {currentStep > 1 ? 'Completed' : currentStep === 1 ? 'Active' : 'Pending'}
@@ -171,7 +171,7 @@ export default function ReportTracker() {
                     </div>
                   </div>
 
-                  {/* Step 3: Report Ready */}
+                  {/* Step 3: Treatment Plan Ready */}
                   <div className="flex items-start gap-4 relative z-10">
                     <div className={`w-9 h-9 rounded-full flex items-center justify-center border-2 transition-all duration-300 ${
                       currentStep === 2 
@@ -182,7 +182,7 @@ export default function ReportTracker() {
                     </div>
                     <div>
                       <div className={`font-body font-bold text-[13px] leading-tight ${currentStep === 2 ? 'text-[#0A1628]' : 'text-slate-400'}`}>
-                        Report Ready
+                        Treatment Plan Ready
                       </div>
                       <div className="font-body text-[11px] text-[#475569] mt-0.5">
                         {currentStep === 2 ? 'Ready' : 'Pending'}

@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TrustStrip from './components/TrustStrip';
 import Services from './components/Services';
+import AboutDoctor from './components/AboutDoctor';
 import SymptomFinder from './components/SymptomFinder';
 import Packages from './components/Packages';
 import HowItWorks from './components/HowItWorks';
@@ -53,7 +54,7 @@ function App() {
       <Navbar />
       {/* Proof banner fixed below the fixed top-0 navbar */}
       <div className="fixed top-20 left-0 right-0 bg-[#0DCCB8] text-[#0A1628] font-body font-semibold text-[12px] tracking-[0.5px] text-center py-2.5 px-4 z-40">
-        Sample mockup for Forthlines Diagnostics — built by{' '}
+        Sample mockup for Dr Subhrajyoti Biswas Ayurveda — built by{' '}
         <a 
           href="https://gencore.co.in" 
           target="_blank" 
@@ -66,6 +67,7 @@ function App() {
       <Hero />
       <TrustStrip />
       <Services />
+      <AboutDoctor />
       <SymptomFinder />
       <Packages />
       <HowItWorks />

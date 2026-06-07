@@ -14,51 +14,51 @@ import {
 const services = [
   {
     icon: Droplet,
-    name: 'Blood Tests',
-    desc: 'CBC, LFT, KFT, lipid panels, thyroid and more.',
-    image: '/service-blood-test.png'
+    name: 'Pulse Diagnosis (Nadi Pariksha)',
+    desc: 'Traditional pulse reading to analyze body constitution (Prakriti) and deep-seated health issues.',
+    image: '/ayurveda-clinic.png'
   },
   {
     icon: Microscope,
-    name: 'Pathology',
-    desc: 'Biopsy, histopathology and cytology workups.',
-    image: '/service-pathology.png'
-  },
-  {
-    icon: FlaskConical,
-    name: 'Urine & Stool Analysis',
-    desc: 'Routine analysis with microscopy panels.',
-    image: '/service-urine-analysis.png'
+    name: 'Panchakarma Detox',
+    desc: 'Deep body purification, toxin elimination, and restoration of bodily balance.',
+    image: '/ayurveda-clinic.png'
   },
   {
     icon: Scan,
-    name: 'X-Ray & Imaging',
-    desc: 'Digital X-ray — chest and skeletal studies.',
-    image: '/service-xray.png'
+    name: 'Joint & Spine Care',
+    desc: 'Specialized Ayurvedic therapies (Basti) for arthritis, chronic back pain, and spondylosis.',
+    image: '/ayurveda-clinic.png'
   },
   {
     icon: HeartPulse,
-    name: 'ECG',
-    desc: 'Resting ECG and short cardiac monitoring.',
-    image: '/service-ecg.png'
+    name: 'Stress & Anxiety Relief',
+    desc: 'Shirodhara and specialized herbal oil therapies to calm the mind and restore sleep cycles.',
+    image: '/ayurveda-clinic.png'
   },
   {
     icon: Candy,
-    name: 'Diabetes Panel',
-    desc: 'HbA1c, fasting glucose and insulin assays.',
-    image: '/service-diabetes.png'
+    name: 'Chronic Disease Care',
+    desc: 'Natural management pathways for diabetes, hypertension, and digestive issues.',
+    image: '/ayurveda-clinic.png'
+  },
+  {
+    icon: FlaskConical,
+    name: 'Herbal Pharmacy',
+    desc: 'Pure, authentic Ayurvedic formulations and customized herbal remedies.',
+    image: '/ayurveda-clinic.png'
   },
   {
     icon: Activity,
-    name: 'Thyroid Profile',
-    desc: 'Full TSH, T3 and T4 hormone panel.',
-    image: '/service-thyroid.png'
+    name: 'Rejuvenation (Rasayana)',
+    desc: 'Therapies designed to boost immunity, reverse aging triggers, and optimize vitality.',
+    image: '/ayurveda-clinic.png'
   },
   {
     icon: Home,
-    name: 'Home Collection',
-    desc: 'Doorstep sample pickup by trained technicians.',
-    image: '/service-home-collection.png'
+    name: 'Home Consultations',
+    desc: 'Doctor home visits or online consultations for patients seeking care from home.',
+    image: '/ayurveda-clinic.png'
   }
 ];
 
@@ -87,13 +87,13 @@ export default function Services() {
               OUR SERVICES
             </span>
             <h2 id="services-heading" className="font-display font-semibold text-3xl sm:text-[40px] text-[#0A1628] leading-[1.2]">
-              Comprehensive diagnostic services, <br />
-              close to your home.
+              Comprehensive Ayurvedic therapies, <br />
+              tailored for your health.
             </h2>
           </div>
           <div className="lg:col-span-5 lg:pl-4">
             <p className="font-body text-[14.5px] text-[#475569] leading-relaxed">
-              From everyday blood tests to specialised pathology — accurate workups delivered same-day, by qualified technicians you can trust.
+              From traditional pulse diagnosis to customized detox therapies — authentic Ayurvedic healing by certified practitioners you can trust.
             </p>
           </div>
         </div>
@@ -109,22 +109,22 @@ export default function Services() {
                 >
                   <div className="flex flex-col items-center justify-center w-full max-w-[315px] mx-auto">
                     <span className="text-[11.5px] sm:text-[12.5px] uppercase tracking-[2.5px] font-bold text-[#00B4A6] mb-3.5 block">
-                      FORTHLINES QUALITY
+                      DR. SUBHRAJYOTI BISWAS
                     </span>
                     <h3 className="font-display font-medium text-[23px] sm:text-[25px] text-[#0A1628] leading-tight mb-3.5">
-                      Accurate reports. <br />
-                      Same-day delivery.
+                      Root-cause healing. <br />
+                      Authentic therapies.
                     </h3>
                     <p className="font-body text-[14px] sm:text-[14.5px] text-[#475569] leading-relaxed mb-5.5">
-                      Every diagnostic parameter is verified by certified pathologists. Get precise digital reports pushed straight to your WhatsApp.
+                      Every diagnosis is backed by deep knowledge of classic Ayurvedic texts. Get personalized treatment plans and natural medicine advisory.
                     </p>
                     <a 
-                      href="https://wa.me/918777578862?text=Hi%2C%20I%20want%2520to%20book%20a%2520test%20at%20Forthlines%20Diagnostics"
+                      href="https://wa.me/918638707818?text=Hi%2C%20I%20want%20to%20book%20an%20Ayurvedic%20home%20consultation%20with%20Dr%20Subhrajyoti%20Biswas"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-[13.5px] sm:text-[14.5px] font-body font-semibold text-[#00B4A6] hover:text-[#00a396] transition-colors"
                     >
-                      <span>Book a Home Visit</span>
+                      <span>Book a Home Consultation</span>
                       <span className="text-sm font-normal">→</span>
                     </a>
                   </div>

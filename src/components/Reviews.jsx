@@ -5,17 +5,17 @@ const reviewsList = [
   {
     author: 'Sudipta M.',
     avatarLetter: 'S',
-    text: '"Very professional staff, reports came on time. Highly recommend Forthlines."'
+    text: '"Very well experienced doctor. He have Deep rooted ayurveda knowledge. Highly recommended for chronic ailments."'
   },
   {
     author: 'Rahul B.',
     avatarLetter: 'R',
-    text: '"Best diagnostic centre in Patuli. Prices are fair and service is excellent."'
+    text: '"Best Ayurvedic clinic in Guwahati. Dr Subhrajyoti Biswas explains the root cause very clearly and the natural medicines are highly effective."'
   },
   {
     author: 'Priya D.',
     avatarLetter: 'P',
-    text: '"Home collection service is very convenient. The technician was punctual and hygienic."'
+    text: '"Traditional Nadi Pariksha consultation was extremely accurate. High customer satisfaction and very clean clinical setup in Pan Bazaar."'
   }
 ];
 
@@ -60,7 +60,7 @@ export default function Reviews() {
                   </span>
                 </div>
                 <div className="font-body text-[10px] text-slate-400 font-semibold tracking-[0.2px]">
-                  Average of 31 Google reviews
+                  Average of 107 Google reviews
                 </div>
               </div>
 
